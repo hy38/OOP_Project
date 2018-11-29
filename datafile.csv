@@ -1,4 +1,4 @@
-idNumber,password,semester,major,AccountNumber,AccountPassword,isPayed,gradePointAverage,schedule
+idNumber password,semester,major,AccountNumber,AccountPassword,isPayed,gradePointAverage,schedule
 a00000000,admin,99,-,99-999-9,9999,TRUE,4.5,
 u201702012,oopLove04,4,computer science & engineering,17-000-1,123,TRUE,3.2,
 u201702041,5ghd5ghd,4,economy,17-000-2,456,FALSE,4.1,
