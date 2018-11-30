@@ -5,6 +5,17 @@
 
 using namespace std;
 
+class Hello 
+{
+// A user added
+
+
+
+
+}
+
+
+
 class Login : public Member
 {
   private:
