@@ -5,17 +5,6 @@
 
 using namespace std;
 
-class Hello 
-{
-// A user added
-
-
-
-
-}
-
-
-
 class Login : public Member
 {
   private:
@@ -29,13 +18,15 @@ class Login : public Member
 
     string getInputID();
     string getInputPassword();
+    bool getsuccessIdentifying();
     //  getter
 
     void setInputID(string _ID);
     void setInputPassword(string _password);
+    void setsuccessIdentifying(bool); 
     //  setter : need??
 
-    void Login::setStatus();    //  gets the first character of ID
+    void Login::setMemberStatus(string _inputID);    //  gets the first character of ID
 
     bool Login::getIdentify(string _inputID, string _inputPassword);  //  gets userInput ID/PW's to confirm with the ones in Member's database
 

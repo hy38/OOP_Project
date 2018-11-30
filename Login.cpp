@@ -12,41 +12,37 @@ Login::Login(string _ID, string _PW) : Member(){
 
 string Login::getInputID() { return inputID; }
 string Login::getInputPassword() { return inputPassword; }
-// char Login::getStatus() { return status; }
+
+bool Login::getIdentify(string _inputID, string _inputPassword){   //  gets userInput ID/PW's to compare with the ones in Member's database
+    int index = search(_inputID);   //  search exception handled in search() function
+
+        if(!memberStructs[index].password.compare(_inputPassword)){ //  compare the passwords
+            successIdentifying = true;
+            setMemberStatus(_inputID);    // set Member::status
+            return true;
+        }
+        
+    return false;
+}   //  if successful, success = true.
 //  getter
 
 void Login::setInputID(string _idNumber) { inputID = _idNumber; }
 void Login::setInputPassword(string _password) { inputPassword = _password; }
-void Login::setStatus(){    //  gets the first character of ID
+void Login::setsuccessIdentifying(bool _successIdentifying) { successIdentifying = _successIdentifying; }
+
+void Login::setMemberStatus(string _inputID){    //  gets the first character of ID
     char temp;
     if (successIdentifying){
-        if (!isdigit(temp = inputID.at(0))) //  Member(Parent) sets => Child gets setted by inheritance. right? ******************88
+        if (!isdigit(temp = _inputID.at(0)))
             Member::setStatus(temp); //  the first character of ID; must not be int but char
-        
+            // Member
         else
-            throw exception(); //  first letter is int not char.
+            throw "First letter must be a 'char'!"; //  first letter is int not char.
         }
     else
         throw "Identification ERROR";
     }
 //  setter
-
-bool Login::getIdentify(string _inputID, string _inputPassword){   //  gets userInput ID/PW's to compare with the ones in Member's database
-    int index;  //  <== ************************************QUESTION*************************************
-
-    if (index = search(_inputID) == -1)
-        throw "there's NO SUCH ID!";
-    else{   //  valid ID
-        if(memberStructs[index].password.compare(_inputPassword)){  // 1. compare the passwords.
-            successIdentifying = true;
-            setStatus();    // 2. set status variable.
-            return true;
-        }
-
-    }
-    return true;
-
-}   //  if successful, success = true.
 
 int Login::search(string _inputID){ //  searches the Member's ID and returns the ID's structure index. return -1 if fail.
 
@@ -55,9 +51,7 @@ int Login::search(string _inputID){ //  searches the Member's ID and returns the
             return i;
         
         else    //  there is no such ID!
-            return -1;
-            // throw exception();
+            throw "No SUCH ID! Please check your ID again.";
     }
 
 }
-

@@ -1,5 +1,5 @@
-idNumber password,semester,major,AccountNumber,AccountPassword,isPayed,gradePointAverage,schedule
-a00000000,admin,99,-,99-999-9,9999,TRUE,4.5,
-u201702012,oopLove04,4,computer science & engineering,17-000-1,123,TRUE,3.2,
-u201702041,5ghd5ghd,4,economy,17-000-2,456,FALSE,4.1,
-p201801004,jsk1122,8,computer science & engineering,18-000-1,789,TRUE,4.5,
+idNumber, password,semester,major,schedule,subject1,grade1,subject2,grade2,subject3,grade3
+a00000000,admin123,null,null,null,OOP,A,SYSProg,B,ComArch,D
+u201702012,oopLove04,4,CSE,TRUE,OOP,C,SYSProg,D,ComArch,A
+g201702041,5ghd5ghd,10,Mechatronics,FALSE,OOP,F,SYSProg,F,ComArch,F
+p201801004,jsk1122,null,Physics,TRUE,null,null,null,null,null,null
