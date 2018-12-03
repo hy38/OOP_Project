@@ -1,3 +1,6 @@
+#ifndef STUDENT_H
+#define STUDENT_H
+
 //  tjdwjr ghkrdls
 //  wmdaudtj qkfrmq
 #include "Member.h"
@@ -9,3 +12,5 @@
 class Student{
 
 };
+
+#endif

@@ -62,10 +62,9 @@ vector<Member> Member::saveFileData(string fileName){
             if(getStatus() == 'p'){ //  if professor
 
                 Professor aProfessor;
-
-                aProfessor.getSemester();
-
-                
+                getline(inFile, str);
+                aProfessor(str);
+                                
                 MemberLists.push_back(aProfessor);                
             }
             

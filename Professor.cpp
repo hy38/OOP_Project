@@ -4,10 +4,15 @@
 
 using namespace std;
 
-Professor::Professor(){
+Professor::Professor(){};
+
+Professor::Professor(string _inputStringLine){
+
+    
 
 
-};
+
+}
 
 
 void Professor::getSemester(){}
