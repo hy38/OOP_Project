@@ -19,7 +19,7 @@ bool LeaveRequest::ifRequest(){
     else{
         throw "input is discorrect";
     } 
-}
+} 
 
 void LeaveRequest::addRequest(string _questionList[], int _questionNumber){
     if (ifRequest()){    // ifRequest is true

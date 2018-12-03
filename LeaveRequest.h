@@ -13,5 +13,5 @@ class LeaveRequest : public Member {
         void addRequest(string _questionList[], int _questionNumber);
         bool ifRequest();
 }; 
-
+ 
 #endif
