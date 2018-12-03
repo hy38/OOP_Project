@@ -1,8 +1,8 @@
-#ifndef MEMBER_h
-#define MEMBER_h
-#include <iostream>
+#ifndef MEMBER_H
+#define MEMBER_H
 #define MAX_ARRAY_SIZE 10 //  capacity problem exception?
 #define MAX_SUBJECT_SIZE 3
+#include <iostream>
 #include <vector>
 
 using namespace std;
