@@ -1,6 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include "Member.h"
+#include "Professor.h"
+#include "Student.h"
+// #include "UndergraduatedStudent.h"
+#include "GraduatedStudent.h"
+#include <vector>
 using namespace std;
 
 Member::Member(){
@@ -25,11 +30,15 @@ int Member::getSizeOfArray() {
 
 // void Member::setIdNumber(string _idNumber) { idNumber = _idNumber; }
 // void Member::setPassword(string _password) { password = _password; }
-// void Member::setStatus(char _status) { status = _status; }
-void Member::setStatus(char _status){status = _status;}  // /*   virtual function for inheritance : Child MUST override!*/ 
+void Member::setStatus(char _status){status = _status;}
 //  setter
 
-void Member::saveFileData(string fileName){
+vector<Member> Member::saveFileData(string fileName){
+
+    vector<Member> MemberLists;
+
+    if(!fileName.compare(NULL)) throw "[File Input] : NULL File";
+
     for(int i=0; i<getSizeOfArray(); i++){
         fstream inFile;
         // inFile.open("datafile.csv");
@@ -49,6 +58,31 @@ void Member::saveFileData(string fileName){
                     throw "s";
             }
             memberStructs[i].idNumber = str;
+
+            if(getStatus() == 'p'){ //  if professor
+
+                Professor aProfessor;
+
+                aProfessor.getSemester();
+
+                
+                MemberLists.push_back(aProfessor);                
+            }
+            
+            else if(getStatus() == 'u'){ //  if undergraduated student
+
+                UndergraduateStudent aUndergraduated;
+
+                MemberLists.push_back(aUndergraduated);      
+            }
+            
+            else if(getStatus() == 'g'){ //  if graduated student
+
+                GraduatedStudent aGraduated;
+
+                MemberLists.push_back(aGraduated);
+            }
+
 
             getline(inFile, str, ','); //  password : string
             for (int i = 0, count = 0; i < str.length(); i++)
@@ -88,14 +122,6 @@ void Member::saveFileData(string fileName){
                 memberStructs[i].schedule = false;
             else
                 throw "data must be \"TRUE\" or \"FALSE\"";
-
-            getline(inFile, str, ','); //  gradePointAverage : float
-            for (int i = 0; i < str.length(); i++)
-            {
-                if (!isdigit(str[i]))
-                    throw 0;
-            }
-            memberStructs[i].gradePointAverage = stof(str);
 
             getline(inFile, str, ','); //  subject1 : string
             for (int i = 0; i < str.length(); i++)

@@ -2,6 +2,8 @@
 #define MEMBER_h
 #include <iostream>
 #define MAX_ARRAY_SIZE 10 //  capacity problem exception?
+#define MAX_SUBJECT_SIZE 3
+#include <vector>
 
 using namespace std;
 
@@ -13,11 +15,12 @@ struct grade{
 struct memberStruct{
   string idNumber;
   string password;
-  int semester;
+  // int semester;
   string major;
   bool schedule;
-  bool isPayed;
-  float gradePointAverage;
+  // bool isPayed;
+  // float gradePointAverage;
+  // struct grade grades[MAX_SUBJECT_SIZE];
 };
 struct memberStruct memberStructs[MAX_ARRAY_SIZE];
 
@@ -38,7 +41,7 @@ public:
   void setPassword(string _password);
   void setStatus(char _status);
 
-  void Member::saveFileData(string fileName);
+  vector<Member> saveFileData(string fileName);
 };
 
 #endif

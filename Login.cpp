@@ -23,7 +23,7 @@ bool Login::getIdentify(string _inputID, string _inputPassword){   //  gets user
         }
         
     return false;
-}   //  if successful, success = true.
+}   //  if successful, successIdentifying = true.
 //  getter
 
 void Login::setInputID(string _idNumber) { inputID = _idNumber; }
