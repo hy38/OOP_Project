@@ -8,9 +8,9 @@ Student::Student(){
 
 void Student::setSemester(int _semester) { semester = _semester;}
 
-void Student::setGrades(string _subject, char _grade){
+// void Student::setGrades(string _subject, char _grade){
     
-}
+// }
 void Student::setGrades(string _subject, char _grade, int _index){
     
     Grades[_index].subject = _subject;

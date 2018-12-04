@@ -24,7 +24,7 @@ Professor::Professor(string _inputStringLine){
             }
         }
 
-        if (getline(input_stringstream, parsed, '\n')){    
+        if (getline(input_stringstream, parsed, ',')){    
             if (parsed.compare("TRUE") == 0)
             Member::setSchedule(true);  //  schedule parse
         else if (parsed.compare("FALSE") == 0)
@@ -32,6 +32,8 @@ Professor::Professor(string _inputStringLine){
         else
             throw "schedule parsing error";
         }
+
+        getline(input_stringstream, parsed);
 
     }
     catch (char const *msg)

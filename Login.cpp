@@ -17,14 +17,20 @@ string Login::getInputPassword() { return inputPassword; }
 Member Login::getIdentify(vector<Member> _Member){   //  gets userInput ID/PW's to compare with the ones in Member's database
     int index = Member::searchIndexOfVector(_Member, inputID);   //  search exception handled in search() function
 
+    try{
         if(! _Member[index].getPassword().compare(inputPassword)){
             successIdentifying = true;
-            setMemberStatus(inputID);    // set Member::status
+            // setMemberStatus(inputID);    // set Member::status
             return _Member[index];
         }
         else
             throw "Password disMatch!";
-
+    }
+    catch (char const *msg)
+		{
+			cerr << msg << endl;
+			exit(0);
+		}
 }   //  if successful, successIdentifying = true.
 //  getter
 
@@ -42,5 +48,6 @@ void Login::setMemberStatus(string _inputID){    //  gets the first character of
         }
     else
         throw "Identification ERROR";
+        
     }
 //  setter

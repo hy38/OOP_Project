@@ -1,6 +1,6 @@
 #ifndef PROFESSOR_H
 #define PROFESSOR_H
-// #include "Member.h"
+#include "Member.h"
 #include "Student.h"
 #include <iostream>
 #include <vector>
@@ -10,7 +10,7 @@ using namespace std;
 class Professor : public Member
 {
 private:
-  char studentGrade;
+  // char studentGrade;
 
 public:
   Professor();

@@ -1,7 +1,7 @@
 #ifndef GRADUATESTUDENT_H
 #define GRADUATESTUDENT_H
 
-// #include "Member.h"
+#include "Member.h"
 #include "Student.h"
 
 using namespace std;

@@ -22,7 +22,8 @@ void Member::setMajor(string _major) { major = _major; }
 void Member::setSchedule(bool _schedule) { schedule = _schedule; }
 //  setter
 
-vector<Member> Member::saveFileData(string fileName){
+
+/* vector<Member> Member::saveFileData(string fileName){
 
     vector<Member> MemberLists;
 
@@ -40,7 +41,7 @@ vector<Member> Member::saveFileData(string fileName){
             getline(inFile, str, ','); //  idNumber : string
             idNumber = str; //  put parsed string into idNumber 
 
-            /* getStatus works properly because we setted the status while login. */
+            //  getStatus works properly because we setted the status while login. 
             if(getStatus() == 'p'){ //  if professor
 
                 getline(inFile, str);
@@ -86,15 +87,23 @@ vector<Member> Member::saveFileData(string fileName){
     }   //  for end
 
 }   //  end of function Member::saveFileData()
-
-int searchIndexOfVector(vector<Member> _Members, string _id)
+ */
+int Member::searchIndexOfVector(vector<Member> _Members, string _id)
 {
-    for (int i = 0; i < _Members.size(); i++)
-    {                                                //  search
-        if (!_Members[i].getIdNumber().compare(_id)) //  check the validity of_inputID. ==> if(same)
-            return i;
+    try
+    {
+        for (int i = 0; i < _Members.size(); i++)
+        {                                                //  search
+            if (!_Members[i].getIdNumber().compare(_id)) //  check the validity of_inputID. ==> if(same)
+                return i;
 
-        else //  there is no such ID!
-            throw "No SUCH ID! Please check your ID again.";
+            else //  there is no such ID!
+                throw "No SUCH ID! Please check your ID again.";
+        }
+    }
+    catch (char const *msg)
+    {
+        cerr << msg << endl;
+        exit(0);
     }
 }

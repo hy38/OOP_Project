@@ -14,7 +14,7 @@ struct grade{
   string subject;
   char grade;
 };
-struct grade Grades[MAX_GRADE_SIZE];
+static struct grade Grades[MAX_GRADE_SIZE];
 
 
 class Student : public Member{
@@ -25,7 +25,7 @@ public:
   Student();
   void setSemester(int _semester);
   void setGrades(string _subject, char _grade, int _index);
-  void setGrades(string _subject, char _grade);
+  // void setGrades(string _subject, char _grade);
 
 
   int getSemester();

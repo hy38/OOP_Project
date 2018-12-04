@@ -13,7 +13,7 @@ GraduateStudent::GraduateStudent(string _inputStringLine){
 
     try{
         if (getline(input_stringstream, parsed, ',')){
-            setPassword(parsed);    //  password parse
+            Member::setPassword(parsed);    //  password parse
         }
         else throw "password parsing error!";
 

@@ -1,11 +1,11 @@
-OBJECTS = main.o Login.o Member.o Professor.o Student.o UndergraduateStudent.o GraduateStudent.o
+OBJECTS = main.o Login.o Member.o  UndergraduateStudent.o GraduateStudent.o Student.o Professor.o 
 
 CC = g++
 CFLAGS = -c
 TARGET = Main
 
 $(TARGET): $(OBJECTS)
-	$(CC) -o $(TARGET) $(OBJECTS)
+	$(CC) -g -o $(TARGET) $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS) $(TARGET)

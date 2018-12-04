@@ -1,10 +1,10 @@
 #ifndef MEMBER_H
 #define MEMBER_H
 
-#include "Professor.h"
-#include "Student.h"
-#include "UndergraduateStudent.h"
-#include "GraduateStudent.h"
+// #include "Professor.h"
+// #include "Student.h"
+// #include "UndergraduateStudent.h"
+// #include "GraduateStudent.h"
 #include <iostream>
 #include <vector>
 
