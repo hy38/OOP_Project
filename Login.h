@@ -13,7 +13,7 @@ class Login : public Member
     bool successIdentifying;
 
   public:
-    Login(string _ID, string _PW){}
+    Login(vector<Member> _Member);
     //  constructor
 
     string getInputID();
@@ -26,11 +26,11 @@ class Login : public Member
     void setsuccessIdentifying(bool); 
     //  setter : need??
 
-    void Login::setMemberStatus(string _inputID);    //  gets the first character of ID
+    void setMemberStatus(string _inputID);    //  gets the first character of ID
 
-    bool Login::getIdentify(string _inputID, string _inputPassword);  //  gets userInput ID/PW's to confirm with the ones in Member's database
+    Member getIdentify(vector<Member>);  //  gets userInput ID/PW's to confirm with the ones in Member's database
 
-    int Login::search(string _inputID);    //  searches the Member's ID and returns the ID's password
+    int search(string _inputID);    //  searches the Member's ID and returns the ID's password
 
 };
 #endif

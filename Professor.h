@@ -5,24 +5,14 @@
 #include "Member.h"
 
 class Professor : public Member{
+private:
+  char studentGrade;
+
 public:
   Professor();
   Professor(string _inputStringLine);
-  void Professor::setStudentGrade(vector<Member>, string);
+  void setStudentGrade(vector<Member>, string);
   void getSemester();
-
-private:
-  // string idNumber;
-  // string password;
-  // int semester;
-  // string major;
-  // bool schedule;
-  // bool isPayed;
-  // float gradePointAverage;
-  // struct grade grades[MAX_SUBJECT_SIZE];
-  char studentGrade;
-
-
 
 };
 

@@ -1,5 +1,12 @@
 #include "Member.h"
 #include "Student.h"
-class GraduatedStudent : public Student{
+class GraduateStudent : public Student{
+
+public:
+GraduateStudent();
+GraduateStudent(string _inputStringLine);
+
+private:
+
 
 };

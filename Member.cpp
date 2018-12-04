@@ -56,7 +56,9 @@ vector<Member> Member::saveFileData(string fileName){
                 getline(inFile, str);
                 UndergraduateStudent anUndergraduate = UndergraduateStudent(str);
                  
-                MemberLists.push_back(anUndergraduate);      
+                MemberLists.push_back(anUndergraduate);
+                // MemberLists.push_back(UndergraduateStudent(str));
+                      
             }
             
             else if(getStatus() == 'g'){ //  if graduated student
@@ -88,7 +90,7 @@ vector<Member> Member::saveFileData(string fileName){
 
 }   //  end of function Member::saveFileData()
 
-int searchIndexOfVector(vector<Member>, string _id)
+int searchIndexOfVector(vector<Member> _Members, string _id)
 {
     for (int i = 0; i < _Members.size(); i++)
     {                                                //  search

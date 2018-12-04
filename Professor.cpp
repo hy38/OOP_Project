@@ -41,7 +41,7 @@ Professor::Professor(string _inputStringLine){
     }
 }
 
-void Professor::setStudentGrade(vector<Student> _Members, string _id){   //  student id?
+void Professor::setStudentGrade(vector<Member> _Members, string _id){   //  student id?
     
     int index = searchIndexOfVector(_Members, _id);
     string inputSubject;
@@ -52,7 +52,8 @@ void Professor::setStudentGrade(vector<Student> _Members, string _id){   //  stu
         cin >> inputSubject;
         cout << "input the grade :";
         cin >> inputGrade;
-        _Members[index].setGrades(inputSubject, inputGrade);
+        Student a = _Members[index];
+        a.setGrades(inputSubject, inputGrade);
 
     }
 
