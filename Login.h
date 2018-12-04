@@ -13,7 +13,7 @@ class Login : public Member
     bool successIdentifying;
 
   public:
-    Login(vector<Member> _Member);
+    Login(/* vector<Member> _Member */);
     //  constructor
 
     string getInputID();

@@ -20,8 +20,7 @@ int main()
 	// Member admin = Member(); //  Member tjsdjsgkdu epdlxj dlqfur gn ahems ekdma wkrdjq tlfgod! tjsrufwhrjsdla
 	// vector<Member> dataVector = admin.saveFileData("datafile.csv");
 	int select = 0;
-	Member user;
-	// cin >>
+	
 	vector<Member> MemberLists;
 
 	fstream inFile;
@@ -43,7 +42,7 @@ int main()
 
 				getline(inFile, str);
 				Professor aProfessor = Professor(str); //  gives rest of the string of 'str' to the constructor of Professor
-
+				aProfessor.setIdNumber(str);
 				MemberLists.push_back(aProfessor);
 			}
 
@@ -52,7 +51,7 @@ int main()
 
 				getline(inFile, str);
 				UndergraduateStudent anUndergraduate = UndergraduateStudent(str);
-
+				anUndergraduate.setIdNumber(str);
 				MemberLists.push_back(anUndergraduate);
 			}
 
@@ -61,7 +60,7 @@ int main()
 
 				getline(inFile, str);
 				GraduateStudent aGraduated = GraduateStudent(str);
-
+				aGraduated.setIdNumber(str);
 				MemberLists.push_back(aGraduated);
 			}
 
@@ -80,8 +79,8 @@ int main()
 	} //  for end
 	inFile.close();
 
-	Login anObject = Login(MemberLists);
-	user = anObject.getIdentify(MemberLists);
+	Login anObject = Login(/* MemberLists */);
+	Member user = anObject.getIdentify(MemberLists);
 	// user = dataVector[anObject.getIdentify(dataVector)]; if getIdentiry return int
 
 	cout << "Login Successful! you are a '" << user.getStatus() << "'!" << endl;

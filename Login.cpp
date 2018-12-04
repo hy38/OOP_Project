@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Login::Login(vector<Member> _Member){
+Login::Login(/* vector<Member> _Member */){
     cout << "ID :";
 	cin >> inputID;
 	cout << "Password :";
