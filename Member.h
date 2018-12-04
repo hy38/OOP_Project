@@ -1,47 +1,48 @@
 #ifndef MEMBER_H
 #define MEMBER_H
-#define MAX_ARRAY_SIZE 10 //  capacity problem exception?
-#define MAX_SUBJECT_SIZE 3
+
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-struct grade{
-  string subject;
-  char grade;
-};
-
-struct memberStruct{
-  string idNumber;
-  string password;
-  // int semester;
-  string major;
-  bool schedule;
-  // bool isPayed;
-  // float gradePointAverage;
-  // struct grade grades[MAX_SUBJECT_SIZE];
-};
-struct memberStruct memberStructs[MAX_ARRAY_SIZE];
+// struct memberStruct{
+//     // string idNumber;
+//     // string password;
+//   // int semester; not use
+//     // string major;
+//     // bool schedule;
+//   // bool isPayed; not use
+//   // float gradePointAverage; not use
+//   // struct grade grades[MAX_SUBJECT_SIZE]; not use
+// };
+// struct memberStruct memberStructs;
 
 class Member{
   
 private:
   char status;
-  int sizeOfArray;
+  string idNumber;
+  string password;
+  string major;
+  bool schedule;
 
 public:
   Member();
+  char getStatus();
   string getIdNumber();
   string getPassword();
-  char getStatus();
-  int getSizeOfArray();
+  string getMajor();
+  bool getSchedule();
 
+  void setStatus(char _status);
   void setIdNumber(string _idNumber);
   void setPassword(string _password);
-  void setStatus(char _status);
+  void setMajor(string _major);
+  void setSchedule(bool _schedule);
 
   vector<Member> saveFileData(string fileName);
+  int searchIndexOfVector(vector<Member>, string _id);
 };
 
 #endif

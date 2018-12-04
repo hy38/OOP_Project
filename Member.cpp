@@ -1,47 +1,38 @@
-#include <iostream>
-#include <fstream>
+#define MAX_MEMBERS 5
 #include "Member.h"
 #include "Professor.h"
 #include "Student.h"
-// #include "UndergraduatedStudent.h"
-#include "GraduatedStudent.h"
+#include <iostream>
+#include <fstream>
 #include <vector>
 using namespace std;
 
-Member::Member(){
-    sizeOfArray = MAX_ARRAY_SIZE;
-
-
-}
+Member::Member(){}
 //  constructor
 
-// string Member::getIdNumber() { return idNumber; }
-// string Member::getPassword() { return password; }
 char Member::getStatus() { return status; }
-int Member::getSizeOfArray() { 
-
-    for(int i=0; i<MAX_ARRAY_SIZE; i++){
-        if(!memberStructs[i].idNumber.compare("null"))  //  if idNumber == "null"
-            return i;
-        //Exceptions?
-    }
-}
+string Member::getIdNumber() { return idNumber; }
+string Member::getPassword() { return password; }
+string Member::getMajor() { return major; }
+bool Member::getSchedule() { return schedule; }
 //  getter
 
-// void Member::setIdNumber(string _idNumber) { idNumber = _idNumber; }
-// void Member::setPassword(string _password) { password = _password; }
 void Member::setStatus(char _status){status = _status;}
+void Member::setIdNumber(string _idNumber) { idNumber = _idNumber; }
+void Member::setPassword(string _password) { password = _password; }
+void Member::setMajor(string _major) { major = _major; }
+void Member::setSchedule(bool _schedule) { schedule = _schedule; }
 //  setter
 
 vector<Member> Member::saveFileData(string fileName){
 
     vector<Member> MemberLists;
 
-    if(!fileName.compare(NULL)) throw "[File Input] : NULL File";
+    if(!fileName.compare(NULL))
+        throw "[File Input] : NULL File";
 
-    for(int i=0; i<getSizeOfArray(); i++){
+    for(int i=0; i<MAX_MEMBERS; i++){   //  WHILE EOF convert NEED!
         fstream inFile;
-        // inFile.open("datafile.csv");
         inFile.open(fileName);  //  file open exception handle NEED!
         string str;
         getline(inFile, str); //  Not Taking the First Line
@@ -49,127 +40,37 @@ vector<Member> Member::saveFileData(string fileName){
         try
         {
             getline(inFile, str, ','); //  idNumber : string
-            for (int i = 0, count = 0; i < str.length(); i++)
-            {
-                if (isdigit(str[i]))
-                    count++;
+            idNumber = str; //  put parsed string into idNumber 
 
-                if (count == str.length())
-                    throw "s";
-            }
-            memberStructs[i].idNumber = str;
-
+            /* getStatus works properly because we setted the status while login. */
             if(getStatus() == 'p'){ //  if professor
 
-                Professor aProfessor;
                 getline(inFile, str);
-                aProfessor(str);
+                Professor aProfessor = Professor(str);  //  gives rest of the string of 'str' to the constructor of Professor
                                 
                 MemberLists.push_back(aProfessor);                
             }
             
             else if(getStatus() == 'u'){ //  if undergraduated student
 
-                UndergraduateStudent aUndergraduated;
-
-                MemberLists.push_back(aUndergraduated);      
+                getline(inFile, str);
+                UndergraduateStudent anUndergraduate = UndergraduateStudent(str);
+                 
+                MemberLists.push_back(anUndergraduate);      
             }
             
             else if(getStatus() == 'g'){ //  if graduated student
 
-                GraduatedStudent aGraduated;
+                getline(inFile, str);
+                GraduateStudent aGraduated = GraduateStudent(str);
 
                 MemberLists.push_back(aGraduated);
             }
 
-
-            getline(inFile, str, ','); //  password : string
-            for (int i = 0, count = 0; i < str.length(); i++)
-            {
-                if (isdigit(str[i]))
-                    count++;
-
-                if (count == str.length())
-                    throw "s";
+            else{
+                throw "Undefined Status simbol!";
             }
-            memberStructs[i].password = str;
-
-            getline(inFile, str, ','); //  semester : int
-            for (int i = 0; i < str.length(); i++)
-            {
-                if (!isdigit(str[i]))
-                    throw 0;
-            }
-            memberStructs[i].semester = stoi(str);  //  Error warning
-
-            getline(inFile, str, ','); //  major : string
-            for (int i = 0, count = 0; i < str.length(); i++)
-            {
-                if (isdigit(str[i]))
-                    count++;
-
-                if (count == str.length())
-                    throw "s";
-            }
-            memberStructs[i].major = str;
-
-            //  schedule not sure
-            getline(inFile, str, ','); //  schedule : bool?
-            if (str.compare("TRUE") == 0)
-                memberStructs[i].schedule = true;
-            else if (str.compare("FALSE") != 0)
-                memberStructs[i].schedule = false;
-            else
-                throw "data must be \"TRUE\" or \"FALSE\"";
-
-            getline(inFile, str, ','); //  subject1 : string
-            for (int i = 0; i < str.length(); i++)
-            {
-                if (!isdigit(str[i]))
-                    throw 0;
-            }
-            memberStructs[i].grades[0].subject = str;
-
-            getline(inFile, str, ','); //  grade1 : char
-            for (int i = 0; i < str.length(); i++)
-            {
-                if (!isdigit(str[i]))
-                    throw 0;
-            }
-            memberStructs[i].grades[0].grade = str.at(0);   //  exception when using str.at(0)
-
-            getline(inFile, str, ','); //  subject2 : string
-            for (int i = 0; i < str.length(); i++)
-            {
-                if (!isdigit(str[i]))
-                    throw 0;
-            }
-            memberStructs[i].grades[1].subject = str;
-
-            getline(inFile, str, ','); //  grade2 : char
-            for (int i = 0; i < str.length(); i++)
-            {
-                if (!isdigit(str[i]))
-                    throw 0;
-            }
-            memberStructs[i].grades[1].grade = str.at(0);   //  exception when using str.at(0)
-
-            getline(inFile, str, ','); //  subject3 : string
-            for (int i = 0; i < str.length(); i++)
-            {
-                if (!isdigit(str[i]))
-                    throw 0;
-            }
-            memberStructs[i].grades[2].subject = str;
-
-            getline(inFile, str, '\n'); //  grade3 : char
-            for (int i = 0; i < str.length(); i++)
-            {
-                if (!isdigit(str[i]))
-                    throw 0;
-            }
-            memberStructs[i].grades[2].grade = str.at(0);   //  exception when using str.at(0)
-
+          
         }   //  try end
         catch (int expn)
         {
@@ -187,3 +88,14 @@ vector<Member> Member::saveFileData(string fileName){
 
 }   //  end of function Member::saveFileData()
 
+int searchIndexOfVector(vector<Member>, string _id)
+{
+    for (int i = 0; i < _Members.size(); i++)
+    {                                                //  search
+        if (!_Members[i].getIdNumber().compare(_id)) //  check the validity of_inputID. ==> if(same)
+            return i;
+
+        else //  there is no such ID!
+            throw "No SUCH ID! Please check your ID again.";
+    }
+}

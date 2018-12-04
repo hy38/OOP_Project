@@ -1,14 +1,14 @@
 #ifndef PROFESSOR_H
 #define PROFESSOR_H
 #include <iostream>
+#include "Student.h"
 #include "Member.h"
 
 class Professor : public Member{
 public:
   Professor();
   Professor(string _inputStringLine);
-  void storeData(string _inputStringLine);
-  void setStudentGrade();
+  void Professor::setStudentGrade(vector<Member>, string);
   void getSemester();
 
 private:

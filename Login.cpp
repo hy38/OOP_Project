@@ -16,11 +16,11 @@ string Login::getInputPassword() { return inputPassword; }
 bool Login::getIdentify(string _inputID, string _inputPassword){   //  gets userInput ID/PW's to compare with the ones in Member's database
     int index = search(_inputID);   //  search exception handled in search() function
 
-        if(!memberStructs[index].password.compare(_inputPassword)){ //  compare the passwords
-            successIdentifying = true;
-            setMemberStatus(_inputID);    // set Member::status
-            return true;
-        }
+        // if(!memberStructs[index].password.compare(_inputPassword)){ //  compare the passwords
+        //     successIdentifying = true;
+        //     setMemberStatus(_inputID);    // set Member::status
+        //     return true;
+        // }
         
     return false;
 }   //  if successful, successIdentifying = true.
@@ -44,14 +44,14 @@ void Login::setMemberStatus(string _inputID){    //  gets the first character of
     }
 //  setter
 
-int Login::search(string _inputID){ //  searches the Member's ID and returns the ID's structure index. return -1 if fail.
+// int Login::search(string _inputID){ //  searches the Member's ID and returns the ID's structure index. return -1 if fail.
 
-    for(int i=0; i<Member::getSizeOfArray(); i++){
-        if(!memberStructs[i].idNumber.compare(_inputID)) //  check the validity of_inputID. ==> if(same)
-            return i;
+//     for(int i=0; i<Member::getSizeOfArray(); i++){
+//         if(!memberStructs[i].idNumber.compare(_inputID)) //  check the validity of_inputID. ==> if(same)
+//             return i;
         
-        else    //  there is no such ID!
-            throw "No SUCH ID! Please check your ID again.";
-    }
+//         else    //  there is no such ID!
+//             throw "No SUCH ID! Please check your ID again.";
+//     }
 
-}
+// }
