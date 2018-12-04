@@ -10,8 +10,8 @@ class Request : public Member {
         
     public:
         Request();
-        bool ifRequest();
-        void addRequest(string _questionList[], int _questionNumber);
+        int ifRequest();
+        int ifRequest(Member _bookingMember) {};
 }; 
  
 #endif

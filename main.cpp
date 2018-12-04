@@ -3,6 +3,11 @@
 #include <vector>
 using namespace std;
 
+struct Rooms{
+    int classroom;
+    bool isBooked;
+};
+
 int main(){
 
     Member admin; //  Member tjsdjsgkdu epdlxj dlqfur gn ahems ekdma wkrdjq tlfgod! tjsrufwhrjsdla
