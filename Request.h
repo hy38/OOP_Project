@@ -3,6 +3,8 @@
 #include "Member.h"
 #include <string>
 
+using namespace std;
+
 class Request : public Member {
 
     private:

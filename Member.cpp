@@ -1,7 +1,5 @@
 #define MAX_MEMBERS 5
 #include "Member.h"
-#include "Professor.h"
-#include "Student.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -57,7 +55,6 @@ vector<Member> Member::saveFileData(string fileName){
                 UndergraduateStudent anUndergraduate = UndergraduateStudent(str);
                  
                 MemberLists.push_back(anUndergraduate);
-                // MemberLists.push_back(UndergraduateStudent(str));
                       
             }
             

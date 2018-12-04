@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Login.h"
-#include "Member.h"
 
 using namespace std;
 

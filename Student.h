@@ -3,10 +3,12 @@
 #define MAX_GRADE_SIZE 5
 
 #include "Member.h"
-#include "UndergraduateStudent.h"
-#include "GraduateStudent.h"
+// #include "UndergraduateStudent.h"
+// #include "GraduateStudent.h"
 #include <iostream>
 #include <fstream>
+
+using namespace std;
 
 struct grade{
   string subject;
@@ -15,7 +17,7 @@ struct grade{
 struct grade Grades[MAX_GRADE_SIZE];
 
 
-class Student{
+class Student : public Member{
 private:
   int semester;
 

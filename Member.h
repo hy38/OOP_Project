@@ -1,22 +1,14 @@
 #ifndef MEMBER_H
 #define MEMBER_H
 
+#include "Professor.h"
+#include "Student.h"
+#include "UndergraduateStudent.h"
+#include "GraduateStudent.h"
 #include <iostream>
 #include <vector>
 
 using namespace std;
-
-// struct memberStruct{
-//     // string idNumber;
-//     // string password;
-//   // int semester; not use
-//     // string major;
-//     // bool schedule;
-//   // bool isPayed; not use
-//   // float gradePointAverage; not use
-//   // struct grade grades[MAX_SUBJECT_SIZE]; not use
-// };
-// struct memberStruct memberStructs;
 
 class Member{
   

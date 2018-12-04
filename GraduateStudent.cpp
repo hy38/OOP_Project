@@ -1,5 +1,3 @@
-#include "Member.h"
-#include "Student.h"
 #include "GraduateStudent.h"
 #include <sstream>
 #include <iostream>
@@ -15,12 +13,12 @@ GraduateStudent::GraduateStudent(string _inputStringLine){
 
     try{
         if (getline(input_stringstream, parsed, ',')){
-            Member::setPassword(parsed);    //  password parse
+            setPassword(parsed);    //  password parse
         }
         else throw "password parsing error!";
 
         if (getline(input_stringstream, parsed, ',')){
-            Student::setSemester(parsed);   //  semester parse
+            Student::setSemester(stoi(parsed));   //  semester parse
         }
         else throw "semester parsing error!";
 

@@ -1,7 +1,7 @@
 #include <sstream>
 #include <iostream>
-#include "Student.h"
-#include "Member.h"
+// #include "Student.h"
+// #include "Member.h"
 #include "Professor.h"
 
 using namespace std;
@@ -52,8 +52,8 @@ void Professor::setStudentGrade(vector<Member> _Members, string _id){   //  stud
         cin >> inputSubject;
         cout << "input the grade :";
         cin >> inputGrade;
-        Student a = _Members[index];
-        a.setGrades(inputSubject, inputGrade);
+        // Student a = _Members[index];
+        // a.setGrades(inputSubject, inputGrade);
 
     }
 
