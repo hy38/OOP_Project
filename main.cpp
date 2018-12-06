@@ -1,3 +1,4 @@
+#include "SizeInfo.h"
 #include "Member.h"
 #include "Professor.h"
 #include "UndergraduateStudent.h"
@@ -14,7 +15,7 @@
 #include <fstream>
 #include <string>
 #include <stdlib.h>
-#define ARRAY_SIZE 5
+
 using namespace std;
 
 struct Rooms
@@ -22,7 +23,7 @@ struct Rooms
    int classroom;
    string bookMember;
    bool isBooked;
-};   struct Rooms RoomArray[ARRAY_SIZE];
+};   struct Rooms RoomArray[ROOM_ARRAY_SIZE];
 
 int main()
 {
