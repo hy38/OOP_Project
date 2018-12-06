@@ -12,7 +12,7 @@ using namespace std;
 
 struct grade{
   string subject;
-  char grade;
+  char grade = ' ';
 };
 
 class Student : public Member{

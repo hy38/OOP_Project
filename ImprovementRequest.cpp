@@ -25,21 +25,18 @@ int ImprovementRequest::ifRequest()
 {
     try
     {
-        char ifRe;
-        cout << "기능개선을 요청하려면 y, 취소하려면 n를 입력해주세요: ";
+        int ifRe;
+        cout << "기능개선을 요청하려면 1번, 기능개선요청 리스트를 보려면 2번을 입력해주세요: ";
         cin >> ifRe;
 
-        if (ifRe == 'y')
-            return 1;
-        else if (ifRe == 'n')
-            return 0;
-        else
+        if (ifRe != 1 && ifRe != 2)
             throw "기능개선요청 여부입력이 잘못되었습니다.";
+        return ifRe;
     }
     catch (char const *msg)
     {
         cerr << msg << endl;
-        exit(0);
+        return 0;
     }
 }
 
@@ -47,7 +44,8 @@ void ImprovementRequest::inputOpinion()
 {
     try
     {
-        if (ifRequest())
+        int ifQuestorPrint = ifRequest();
+        if (ifQuestorPrint == 1)
         {
             system("clear");
             string Opinion;
@@ -64,11 +62,14 @@ void ImprovementRequest::inputOpinion()
                 cout << "요청 등록이 완료되었습니다." << endl;
             }
         }
+        else if (ifQuestorPrint == 2){
+            printOpinions();
+        }
     }
     catch (char const *msg)
     {
         cerr << msg << endl;
-        exit(0);
+        return;   
     }
 }
 
@@ -107,7 +108,7 @@ void ImprovementRequest::printOpinions()
         }
         else
         {
-            cout << "----- Opinion list -----" << endl;
+            cout << "-------- Opinion list --------" << endl;
             for (int i = 0; i < getOpinionNumber(); i++)
             {
                 cout << i << ". " << opinions[i] << endl;
@@ -117,6 +118,6 @@ void ImprovementRequest::printOpinions()
     catch (char const *msg)
     {
         cerr << msg << endl;
-        exit(0);
+        return;
     }
 }

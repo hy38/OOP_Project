@@ -1,4 +1,4 @@
-OBJECTS = main.o Login.o Member.o  UndergraduateStudent.o GraduateStudent.o Student.o Professor.o Request.o ClassroomRentRequest.o ImprovementRequest.o ConsultingRequest.o CertificateIssuing.o
+OBJECTS = main.o AppController.o Login.o Member.o  UndergraduateStudent.o GraduateStudent.o Student.o Professor.o Request.o ClassroomRentRequest.o ImprovementRequest.o ConsultingRequest.o CertificateIssuing.o
 
 CC = g++
 CFLAGS = -c
@@ -11,6 +11,7 @@ clean:
 	rm -f $(OBJECTS) $(TARGET)
 
 main.o: main.cpp
+AppController.o: AppController.cpp
 Login.o : Login.cpp
 Member.o : Member.cpp
 Professor.o : Professor.cpp

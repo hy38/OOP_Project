@@ -22,6 +22,6 @@ int Request::ifRequest()
     catch (char const *msg)
     {
         cerr << msg << endl;
-        exit(0);
+        return 0;
     }
 }

@@ -46,7 +46,7 @@ int ClassroomRentRequest::ifRequest()
     catch (char const *msg)
     {
         cerr << msg << endl;
-        exit(0);
+        return 0;
     }
 }
 
@@ -59,7 +59,7 @@ void ClassroomRentRequest::ifRequest(Member _bookingMember)
             system("clear");
             printAllRooms(classroom);
             int roomNumber;
-            cout << "예약할 강의실 호 수를 입력해주세요:"; // 100~104 is classroom, 105~108 is practicalroom
+            cout << "예약할 강의실 호 수를 입력해주세요: "; // 100~104 is classroom, 105~108 is practicalroom
             cin >> roomNumber;
 
             if ((roomNumber >= 100) && (roomNumber <= 108))
@@ -80,13 +80,12 @@ void ClassroomRentRequest::ifRequest(Member _bookingMember)
     catch (char const *msg)
     {
         cerr << msg << endl;
-        exit(0);
+        return;
     }
 }
 
 void ClassroomRentRequest::setClassroomBooked(Member _member, int _roomNumber)
 {
-    system("clear");
     if (classroom[_roomNumber - 100].isBooked)
     { // 102 classroom is loaded at classroom[1]
         cout << "강의실이 이미 예약되어있습니다." << endl;
@@ -101,7 +100,6 @@ void ClassroomRentRequest::setClassroomBooked(Member _member, int _roomNumber)
 
 void ClassroomRentRequest::setPracticalRoomBooked(Member _member, int _roomNumber)
 {
-    system("clear");
     if (_member.getStatus() != 'p')
     {
         cout << "교수님 이외에는 실습실 예약이 불가능합니다." << endl;
@@ -133,8 +131,8 @@ void ClassroomRentRequest::printAllRooms(Rooms _classrooms[]){
             isBooked = "not booked";
         }
         if (i == 5)
-            cout << "---- practical Room ------" << endl;
+            cout << "---------- practical Room ----------" << endl;
         cout << "   "<<_classrooms[i].classroom << "         " << 
-        isBooked << "       " << _classrooms[i].bookMember << endl;
+        isBooked << "           " << _classrooms[i].bookMember << endl;
     }
 }
