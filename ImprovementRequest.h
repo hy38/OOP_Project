@@ -1,18 +1,19 @@
 #ifndef IMPROVEMENTREQUEST_H
 #define IMPROVEMENTREQUEST_H
 #include "Request.h"
+#include "SizeInfo.h"
 #include <string>
 
 class ImprovementRequest : public Request{
     private:
-        string Opinions[];      // 신청을 받는다면 main에서 저장할지? 아니면 member들의 질문 리스트로 가질 지.
-        int OpinionNumber=0;    // 개선요청 의견 개수
+        string opinions[REQUEST_LIST_SIZE];      // 신청을 받는다면 main에서 저장할지? 아니면 member들의 질문 리스트로 가질 지.
 
     public:
-        ImprovementRequest();
+        ImprovementRequest(string _opinions[]);
         int ifRequest();
         void inputOpinion(string _opinions[]);
-        void printOpinions(string _Opinoins, int _OpinoinNumber);
+        void printOpinions(string _opinoins[]);
+        int getOpinionNumber(string _opinions[]);
 };
 
 #endif

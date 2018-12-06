@@ -1,6 +1,5 @@
 #include "ClassroomRentRequest.h"
 #include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -44,7 +43,7 @@ int ClassroomRentRequest::ifRequest()
     }
 }
 
-int ClassroomRentRequest::ifRequest(Member _bookingMember)
+void ClassroomRentRequest::ifRequest(Member _bookingMember)
 {
     try
     {
@@ -68,8 +67,6 @@ int ClassroomRentRequest::ifRequest(Member _bookingMember)
                 throw "강의실 호 수 입력이 잘못되었습니다.";
             }
         }
-        else
-            return 0;   // classroom pasing error or not booking
     }
     catch (char const *msg)
     {
@@ -113,18 +110,19 @@ void ClassroomRentRequest::setPracticalRoomBooked(Member _member, int _roomNumbe
     }
 }
 
-void ClassroomRentRequest::printAllRooms(Rooms _classrooms[], int _roomsNumber){
-    cout << "----- recent classroom booking information -----"<< endl;
+void ClassroomRentRequest::printAllRooms(Rooms _classrooms[]){
+    cout << "----- current classroom booking information -----"<< endl;
     cout << "classroom Number" << cout.width(5) << "isBooked" << cout.width(5)
-        << "bookedMember" << endl;
+        << "bookedMemberID" << endl;
     string isBooked;
-    for(int i = 0; i<_roomsNumber; i++){
+    for(int i = 0; i<CLASSROOM_SIZE; i++){
         if (_classrooms[i].isBooked){
             isBooked = "booked";
         }
         else{
             isBooked = "not booked";
         }
-        cout << _classrooms[i].classroom << cout.width(10);
+        cout << _classrooms[i].classroom << cout.width(10) << 
+        isBooked << cout.width(10) << _classrooms[i].bookMember << endl;
     }
 }

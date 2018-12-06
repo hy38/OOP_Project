@@ -1,10 +1,25 @@
 #include "ImprovementRequest.h"
 #include <iostream>
-#include <string>
 
 using namespace std;
 
-ImprovementRequest::ImprovementRequest() {}
+ImprovementRequest::ImprovementRequest(string _opinions[])
+{
+    try
+    {
+        if (_opinions == NULL)
+        {
+            throw "improvementRequestList pashing error";
+        }
+        else
+            opinions[0] = _opinions[0]; //main문의 requestlist을 가져올 수 있는지?
+    }
+    catch (char const *msg)
+    {
+        cerr << msg << endl;
+        exit(0);
+    }
+}
 
 int Request::ifRequest()
 {
@@ -44,8 +59,8 @@ void ImprovementRequest::inputOpinion(string _Opinions[])
             }
             else
             {
-                _Opinions[OpinionNumber++] = Opinion;
-                cout << "요청 등록이 완료되었습니다. thank you" << endl;
+                _Opinions[getOpinionNumber(_Opinions)] = Opinion;
+                cout << "요청 등록이 완료되었습니다." << endl;
             }
         }
     }
@@ -56,20 +71,43 @@ void ImprovementRequest::inputOpinion(string _Opinions[])
     }
 }
 
-void ImprovementRequest::printOpinions(string _Opinoins, int _OpinoinNumber)
+int ImprovementRequest::getOpinionNumber(string _opinions[])
 {
     try
     {
-        if (_Opinoins.empty() || _OpinoinNumber == 0)
+        if (_opinions == NULL)
         {
-            throw "Opinion list is empty";
+            throw "기능개선요청 리스트가 비어있어 인덱스를 가져올 수 없습니다.";
+        }
+        else{
+            int index = 0;
+            while (!(_opinions[index].empty())){
+                index++;
+            }
+            return index;
+        }
+    }
+    catch (char const *msg)
+    {
+        cerr << msg << endl;
+        exit(0);
+    }
+}
+
+void ImprovementRequest::printOpinions(string _opinoins[])
+{
+    try
+    {
+        if (_opinoins == NULL)
+        {
+            throw "기능개선요청 리스트가 비어있어 출력이 불가능합니다.";
         }
         else
         {
-            for (int i = 0; i < _OpinoinNumber; i++)
+            for (int i = 0; i < getOpinionNumber(_opinoins); i++)
             {
-                cout << "----- _Opinion list -----" << endl;
-                cout << i << ". " << _Opinoins[i] << endl;
+                cout << "----- Opinion list -----" << endl;
+                cout << i << ". " << _opinoins[i] << endl;
             }
         }
     }
