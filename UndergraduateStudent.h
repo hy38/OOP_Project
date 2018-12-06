@@ -9,10 +9,8 @@ class UndergraduateStudent : public Student{
 public:
   UndergraduateStudent();
   UndergraduateStudent(string _inputStringLine);
-  void setStudentGrade();
-  void getSemester();
-  void getAll();
-  
+  int searchIndexOfVector(vector<UndergraduateStudent> _Members, string _id);
+
 private:
 
 

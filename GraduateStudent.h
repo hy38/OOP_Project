@@ -13,7 +13,7 @@ class GraduateStudent : public Student
   public:
     GraduateStudent();
     GraduateStudent(string _inputStringLine);
-    void getAll();
+    int searchIndexOfVector(vector<GraduateStudent> _Members, string _id);
 };
 
 #endif

@@ -8,14 +8,52 @@ Login::Login(/* vector<Member> _Member */){
 	cin >> inputID;
 	cout << "Password :";
 	cin >> inputPassword;
+    setStatus(inputID.at(0));
 }   //  constructor
 
 string Login::getInputID() { return inputID; }
 string Login::getInputPassword() { return inputPassword; }
 
 //  getIdentify() calls search() for compare and calls setStatus() for SETTING the Member::status
-Member Login::getIdentify(vector<Member> _Member){   //  gets userInput ID/PW's to compare with the ones in Member's database
-    int index = Member::searchIndexOfVector(_Member, getInputID());   //  search exception handled in search() function
+UndergraduateStudent Login::getIdentify(vector<UndergraduateStudent> _Member){   //  gets userInput ID/PW's to compare with the ones in Member's database
+    UndergraduateStudent temp;
+    int index = temp.searchIndexOfVector(_Member, getInputID());   //  search exception handled in search() function
+    try{
+        if(! _Member[index].getPassword().compare(inputPassword)){
+            successIdentifying = true;
+            // setMemberStatus(inputID);    // set Member::status
+            return _Member[index];
+        }
+        else
+            throw "Password disMatch!";
+    }
+    catch (char const *msg)
+		{
+			cerr << msg << endl;
+			exit(0);
+		}
+}   //  if successful, successIdentifying = true.
+GraduateStudent Login::getIdentify(vector<GraduateStudent> _Member){   //  gets userInput ID/PW's to compare with the ones in Member's database
+    GraduateStudent temp;
+    int index = temp.searchIndexOfVector(_Member, getInputID());   //  search exception handled in search() function
+    try{
+        if(! _Member[index].getPassword().compare(inputPassword)){
+            successIdentifying = true;
+            // setMemberStatus(inputID);    // set Member::status
+            return _Member[index];
+        }
+        else
+            throw "Password disMatch!";
+    }
+    catch (char const *msg)
+		{
+			cerr << msg << endl;
+			exit(0);
+		}
+}   //  if successful, successIdentifying = true.
+Professor Login::getIdentify(vector<Professor> _Member){   //  gets userInput ID/PW's to compare with the ones in Member's database
+    Professor temp;
+    int index = temp.searchIndexOfVector(_Member, getInputID());   //  search exception handled in search() function
     try{
         if(! _Member[index].getPassword().compare(inputPassword)){
             successIdentifying = true;

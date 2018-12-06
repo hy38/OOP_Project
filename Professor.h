@@ -2,6 +2,8 @@
 #define PROFESSOR_H
 #include "Member.h"
 #include "Student.h"
+#include "UndergraduateStudent.h"
+#include "GraduateStudent.h"
 #include <iostream>
 #include <vector>
 
@@ -15,9 +17,10 @@ private:
 public:
   Professor();
   Professor(string);
-  void setStudentGrade(vector<Member>, string);
+  void setStudentGrade(vector<UndergraduateStudent>, string);
+  void setStudentGrade(vector<GraduateStudent>, string);
   void getSemester();
-  void getAll();
+  int searchIndexOfVector(vector<Professor> _Members, string _id);
 };
 
 #endif

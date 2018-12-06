@@ -1,4 +1,5 @@
 #include "Student.h"
+// #include "SizeInfo.h"
 #include <iostream>
 #include <fstream>
 
@@ -7,10 +8,12 @@ Student::Student(){
 }
 
 void Student::setSemester(int _semester) { semester = _semester;}
-
-// void Student::setGrades(string _subject, char _grade){
+/* 
+void Student::setGrades(string _subject, char _grade){
+    Grades[3].subject = _subject;
+    Grades[3].grade = _grade;
     
-// }
+} */
 void Student::setGrades(string _subject, char _grade, int _index){
     
     Grades[_index].subject = _subject;
@@ -19,3 +22,11 @@ void Student::setGrades(string _subject, char _grade, int _index){
 }
 
 int Student::getSemester(){ return semester; }
+
+void Student::getGrades()
+{
+    for (int i =0; i<MAX_GRADE_SIZE; i++){
+     cout << Grades[i].subject << "  ";
+     cout << Grades[i].grade << endl;
+    }
+}

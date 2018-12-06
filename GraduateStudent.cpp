@@ -60,7 +60,7 @@ GraduateStudent::GraduateStudent(string _inputStringLine){
         }
         else throw "grade1 parsing error!";
 
-        setGrades(tempSubject, tempGrade, 0);  //  Grades[1]
+        setGrades(tempSubject, tempGrade, 1);  //  Grades[1]
 
         if (getline(input_stringstream, parsed, ',')){
             tempSubject = parsed;    //  subject2 parse
@@ -72,7 +72,7 @@ GraduateStudent::GraduateStudent(string _inputStringLine){
         }
         else throw "grade2 parsing error!";
         
-        setGrades(tempSubject, tempGrade, 0);  //  Grades[2]
+        setGrades(tempSubject, tempGrade, 2);  //  Grades[2]
         
         }
 
@@ -85,6 +85,19 @@ GraduateStudent::GraduateStudent(string _inputStringLine){
 
 }
 
-void GraduateStudent::getAll(){
-    cout << getIdNumber()<< endl;
+int GraduateStudent::searchIndexOfVector(vector<GraduateStudent> _Members, string _id){
+    try
+    {
+        for (int i = 0; i < _Members.size(); i++)
+        {                                                //  search
+            if (!_Members[i].getIdNumber().compare(_id)) //  check the validity of_inputID. ==> if(same)
+                return i;
+        }
+        throw "No SUCH ID! Please check your ID again.";
+    }
+    catch (char const *msg)
+    {
+        cerr << msg << endl;
+        exit(0);
+    }
 }

@@ -34,7 +34,7 @@ public:
   void setSchedule(bool _schedule);
 
   vector<Member> saveFileData(string fileName);
-  int searchIndexOfVector(vector<Member>, string _id);
+  // int searchIndexOfVector(vector<Msember>, string _id);
 };
 
 #endif
