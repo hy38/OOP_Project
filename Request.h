@@ -13,7 +13,7 @@ class Request : public Member {
     public:
         Request();
         int ifRequest();
-        int ifRequest(Member _bookingMember) {};
-}; 
- 
+        int ifRequest(Member _bookingMember) {};    // will override in classroomRent
+};
+
 #endif

@@ -11,7 +11,8 @@ class ImprovementRequest : public Request{
     public:
         ImprovementRequest();
         int ifRequest();
-        void InputOpinion(string _opinions[]);
+        void inputOpinion(string _opinions[]);
+        void printOpinions(string _Opinoins, int _OpinoinNumber);
 };
 
 #endif
