@@ -68,6 +68,8 @@ int ClassroomRentRequest::ifRequest(Member _bookingMember)
                 throw "강의실 호 수 입력이 잘못되었습니다.";
             }
         }
+        else
+            return 0;   // classroom pasing error or not booking
     }
     catch (char const *msg)
     {
@@ -106,6 +108,23 @@ void ClassroomRentRequest::setPracticalRoomBooked(Member _member, int _roomNumbe
         {
             classroom[_roomNumber - 100].bookMember = _member.getIdNumber();
             classroom[_roomNumber - 100].isBooked = true;
+            cout << "강의실 예약이 완료되었습니다." << endl;
         }
+    }
+}
+
+void ClassroomRentRequest::printAllRooms(Rooms _classrooms[], int _roomsNumber){
+    cout << "----- recent classroom booking information -----"<< endl;
+    cout << "classroom Number" << cout.width(5) << "isBooked" << cout.width(5)
+        << "bookedMember" << endl;
+    string isBooked;
+    for(int i = 0; i<_roomsNumber; i++){
+        if (_classrooms[i].isBooked){
+            isBooked = "booked";
+        }
+        else{
+            isBooked = "not booked";
+        }
+        cout << _classrooms[i].classroom << cout.width(10);
     }
 }

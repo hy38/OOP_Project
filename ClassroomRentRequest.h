@@ -23,7 +23,7 @@ class ClassroomRentRequest : public Request{
         bool getClassroomBooked(int _roomNumber);
         void setPracticalRoomBooked(Member _member, int _roomNumber);
         bool getPracticalRoomBooked(int _roomNumber);
-        void printAllRooms(Rooms _rooms);
+        void printAllRooms(Rooms _classrooms[], int _roomsNumber);
 };
 
 #endif
