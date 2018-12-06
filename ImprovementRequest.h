@@ -2,6 +2,7 @@
 #define IMPROVEMENTREQUEST_H
 #include "Request.h"
 #include "SizeInfo.h"
+#include <stdlib.h>
 #include <string>
 
 class ImprovementRequest : public Request{
@@ -11,9 +12,9 @@ class ImprovementRequest : public Request{
     public:
         ImprovementRequest(string _opinions[]);
         int ifRequest();
-        void inputOpinion(string _opinions[]);
-        void printOpinions(string _opinoins[]);
-        int getOpinionNumber(string _opinions[]);
+        void inputOpinion();
+        void printOpinions();
+        int getOpinionNumber();
 };
 
 #endif

@@ -4,6 +4,7 @@
 #include "Member.h"
 #include "SizeInfo.h"
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
 

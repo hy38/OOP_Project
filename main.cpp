@@ -5,11 +5,11 @@
 #include "GraduateStudent.h"
 #include "Student.h"
 #include "Login.h"
-// #include "Request.h"
-// #include "ClassroomRentRequest.h"
-// #include "ImprovementRequest.h"
-// #include "ConsultingRequest.h"
-// #include "CertificateIssuing.h"
+#include "Request.h"
+#include "ClassroomRentRequest.h"
+#include "ImprovementRequest.h"
+#include "ConsultingRequest.h"
+#include "CertificateIssuing.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -24,15 +24,16 @@ using namespace std;
 // 	string bookMember;
 // 	bool isBooked;
 // };
-// struct Rooms RoomArray[ROOM_ARRAY_SIZE];
 
 int main()
 {
 	int select = 0;
 
+	Rooms RoomArray[CLASSROOM_SIZE];
 	vector<UndergraduateStudent> UndergraduateStudentLists;
 	vector<GraduateStudent> GraduateStudentLists;
 	vector<Professor> ProfessorLists;
+	string RequestList[REQUEST_LIST_SIZE];
 
 	fstream inFile;
 	inFile.open("datafile.csv"); //  file open exception handle NEED!
@@ -111,14 +112,13 @@ int main()
 	// 	cout << ProfessorLists[i].getMajor() << endl;
 	// 	cout << ProfessorLists[i].getStatus() << endl;
 	// }
-	
 
-	Login anObject = Login(/* MemberLists */);
-	//    ClassroomRentRequest cRent = ClassroomRentRequest(RoomArray);
-	//    ImprovementRequest improvement = ImprovementRequest();
-	//    Request aRequest = Request();
-	//    ConsultingRequest consult = ConsultingRequest();
-	//    CertificateIssuing certificate = CertificateIssuing();
+	Login anObject = Login();
+	ClassroomRentRequest cRent = ClassroomRentRequest(RoomArray);
+	ImprovementRequest improvement = ImprovementRequest(RequestList);
+	Request aRequest = Request();
+	ConsultingRequest consult = ConsultingRequest();
+	CertificateIssuing certificate = CertificateIssuing();
 	if (anObject.getStatus() == 'u')
 	{
 		select = 1;
@@ -133,7 +133,6 @@ int main()
 	}
 	else
 	{
-		// Member user = Member();
 		cout << "Login failed!" << endl;
 		exit(0);
 	}
@@ -156,7 +155,8 @@ int main()
 				system("clear");
 				cout << "[Grade Information Menu]" << endl;
 				cout << "your ID is :" << user.getIdNumber() << endl;
-				cout << "your grade is :" << endl;
+				cout << "your Grade is:" << endl;
+				user.getGrades();
 				//   Implement!!!!   cout << grades.showGrade();   //   iterates all grade struct members
 
 				/* pause */
@@ -166,34 +166,37 @@ int main()
 			}
 			else if (select == 2) //   Request
 			{
-				system("clear");
-				cout << "[Request Menu for]" << endl;
-				//       select = aRequest.ifRequest();
-				// cout << "[1.ClassroomRent] [2.Improvement] [3.Professor Consulting] [4.Certificate] [5.Go Back]" << endl;
-				// cin >> select;
-				if (select == 1)
+				while (1)
 				{
-					// cRent.
+					system("clear");
+					cout << "[Request Menu for]" << endl;
+					select = aRequest.ifRequest();
+					// cout << "[1.ClassroomRent] [2.Improvement] [3.Professor Consulting] [4.Certificate] [5.Go Back]" << endl;
+					// cin >> select;
+					if (select == 1)
+					{
+						cRent.ifRequest(user);
+					}
+					else if (select == 2)
+					{
+						improvement.inputOpinion();
+						improvement.printOpinions();
+					}
+					else if (select == 3)
+					{
+						// consult.
+					}
+					else if (select == 4)
+					{
+						// certificate.
+					}
+					else //	select == 5
+						break;
+					/* pause */
+					cout << "Press enter to continue...";
+					cin.ignore(); // ignores the newline
+					cin.get();	//waits for character
 				}
-				else if (select == 2)
-				{
-					// improvement.InputOpinion();
-					// improvement.
-				}
-				else if (select == 3)
-				{
-					// consult.
-				}
-				else if (select == 4)
-				{
-					// certificate.
-				}
-				else
-					break;
-				/* pause */
-				cout << "Press enter to continue...";
-				cin.ignore(); // ignores the newline
-				cin.get();	//waits for character
 			}
 			else //	exit
 				break;
@@ -231,48 +234,52 @@ int main()
 	}
 	case 3: //   Professor
 	{
-			Professor user = anObject.getIdentify(ProfessorLists);
+		Professor user = anObject.getIdentify(ProfessorLists);
 
+		system("clear");
+		while (1)
+		{
 			system("clear");
-			while (1)
+
+			cout << "교수 계정 입니다.\n[1.Classroom Rent] [2.Input Grade] [3.change isBusy] [4.Exit]" << endl;
+			cin >> select;
+			if (select == 1)
 			{
-				system("clear");
+				cout << "select : 1" << endl;
 
-				cout << "교수 계정 입니다.\n[1.Classroom Rent] [2.Input Grade] [3.Exit]" << endl;
-				cin >> select;
-				if (select == 1)
+				/* pause */
+				cout << "Press enter to continue...";
+				cin.ignore(); // ignores the newline
+				cin.get();	//waits for character
+
+				// cRent.
+			}
+			else if (select == 2)
+			{
+				string tempString;
+				cout << "성적을 입력할 studentID를 입력하시오 :" << endl;
+				cin >> tempString;
+				if (tempString.at(0) == 'u')
 				{
-					cout << "select : 1" << endl;
-
-					/* pause */
-					cout << "Press enter to continue...";
-					cin.ignore(); // ignores the newline
-					cin.get();	//waits for character
-
-					// cRent.
-				}
-				else if (select == 2)
-				{
-					string tempString;
-					cout << "성적을 입력할 studentID를 입력하시오 :" << endl;
-					cin >> tempString;
-					if (tempString.at(0) == 'u'){
-						user.setStudentGrade(UndergraduateStudentLists, tempString);
-					}
-					else{
-						user.setStudentGrade(GraduateStudentLists, tempString);
-					}
-					
-					/* pause */
-					cout << "Press enter to continue...";
-					cin.ignore(); // ignores the newline
-					cin.get();	//waits for character
+					user.setStudentGrade(UndergraduateStudentLists, tempString);
 				}
 				else
-					break;
+				{
+					user.setStudentGrade(GraduateStudentLists, tempString);
+				}
+
+				/* pause */
+				cout << "Press enter to continue...";
+				cin.ignore(); // ignores the newline
+				cin.get();	//waits for character
 			}
-			// break;
-		
+			else if(select == 3){
+				user.setSchedule(!user.getSchedule);
+			}
+			else
+				break;
+		}
+		// break;
 	}
 	default:
 		break;

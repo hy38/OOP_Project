@@ -15,8 +15,9 @@ int Request::ifRequest()
         cout << "[1.Classroom Rent] [2.Improvement] [3.Professor Consulting] [4.Certificate] [5.Go Back]" << endl;
         cin >> select;
 
-        if (select != 1 && select != 2 && select != 3)
+        if (select > 5 || 0 >= select)
             throw "신청 목록에 맞게 번호를 입력해주세요.";
+        system("clear");
         return select;
     }
     catch (char const *msg)

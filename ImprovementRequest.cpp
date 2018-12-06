@@ -21,7 +21,7 @@ ImprovementRequest::ImprovementRequest(string _opinions[])
     }
 }
 
-int Request::ifRequest()
+int ImprovementRequest::ifRequest()
 {
     try
     {
@@ -43,12 +43,13 @@ int Request::ifRequest()
     }
 }
 
-void ImprovementRequest::inputOpinion(string _Opinions[])
+void ImprovementRequest::inputOpinion()
 {
     try
     {
         if (ifRequest())
         {
+            system("clear");
             string Opinion;
             cout << "의견을 입력해주세요: ";
             cin >> Opinion;
@@ -59,7 +60,7 @@ void ImprovementRequest::inputOpinion(string _Opinions[])
             }
             else
             {
-                _Opinions[getOpinionNumber(_Opinions)] = Opinion;
+                opinions[getOpinionNumber()] = Opinion;
                 cout << "요청 등록이 완료되었습니다." << endl;
             }
         }
@@ -71,17 +72,17 @@ void ImprovementRequest::inputOpinion(string _Opinions[])
     }
 }
 
-int ImprovementRequest::getOpinionNumber(string _opinions[])
+int ImprovementRequest::getOpinionNumber()
 {
     try
     {
-        if (_opinions == NULL)
+        if (opinions == NULL)
         {
             throw "기능개선요청 리스트가 비어있어 인덱스를 가져올 수 없습니다.";
         }
         else{
             int index = 0;
-            while (!(_opinions[index].empty())){
+            while (!(opinions[index].empty())){
                 index++;
             }
             return index;
@@ -94,20 +95,20 @@ int ImprovementRequest::getOpinionNumber(string _opinions[])
     }
 }
 
-void ImprovementRequest::printOpinions(string _opinoins[])
+void ImprovementRequest::printOpinions()
 {
     try
     {
-        if (_opinoins == NULL)
+        if (opinions == NULL)
         {
             throw "기능개선요청 리스트가 비어있어 출력이 불가능합니다.";
         }
         else
         {
-            for (int i = 0; i < getOpinionNumber(_opinoins); i++)
+            for (int i = 0; i < getOpinionNumber(); i++)
             {
                 cout << "----- Opinion list -----" << endl;
-                cout << i << ". " << _opinoins[i] << endl;
+                cout << i << ". " << opinions[i] << endl;
             }
         }
     }
