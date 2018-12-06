@@ -7,6 +7,8 @@
 #include "Request.h"
 #include "ClassroomRentRequest.h"
 #include "ImprovementRequest.h"
+#include "ConsultingRequest.h"
+#include "CertificateIssuing.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -88,6 +90,8 @@ int main()
 	ClassroomRentRequest cRent = ClassroomRentRequest(RoomArray);
 	ImprovementRequest improvement = ImprovementRequest();
 	Request aRequest = Request();
+	ConsultingRequest consult = ConsultingRequest();
+	CertificateIssuing certificate = CertificateIssuing();
 	
 	if (user.getStatus() == 'u')
 		select = 1;
@@ -115,7 +119,7 @@ int main()
 					cout << "[Grade Information Menu]\n" << endl;
 					cout << "your ID is :" << user.getIdNumber() << endl;
 					cout << "your grade is :" << endl;
-//	Implement!!!!	cout << showGrade();	//	iterates all grade struct members
+//	Implement!!!!	cout << grades.showGrade();	//	iterates all grade struct members
 					system("pause");
 				}
 				else if (select == 2)	//	Request
@@ -132,8 +136,14 @@ int main()
 						// improvement.InputOpinion();
 						// improvement.
 					}
-
-
+					else if(select == 3){
+						// consult.
+					}
+					else if(select == 4){
+						// certificate.
+					}
+					else
+						break;
 					system("pause");
 				}
 				else
@@ -168,12 +178,18 @@ int main()
 			break;
 		case 3:	//	Professor
 			system("clear");
-			cout << "삭제 메뉴 입니다.\n"
-				 << endl;
+			cout << "교수 계정 입니다.\n[1.Classroom Rent] [2.Input Grade]" << endl;
+			cin >> select;
+			if(select == 1){
+				// cRent.
+			}
+			else if(select == 2){
+				// user.
+			}
+			else
+				break;
 
-			cout << "삭제할 학번을 입력 : " << endl;
-
-			break;
+			// break;
 		default:
 			break;
 		}

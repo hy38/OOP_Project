@@ -1,7 +1,7 @@
 #ifndef CLASSROOMRENTREQUEST_H
 #define CLASSROOMRENTREQUEST_H
 #include "Request.h"
-#include "Member.h";
+#include "Member.h"
 
 using namespace std;
 

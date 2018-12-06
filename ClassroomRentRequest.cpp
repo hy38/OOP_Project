@@ -84,7 +84,7 @@ void ClassroomRentRequest::setClassroomBooked(Member _member, int _roomNumber)
     }
     else
     {
-        classroom[_roomNumber - 100].bookMember = _member;
+        classroom[_roomNumber - 100].bookMember = _member.getIdNumber();
         classroom[_roomNumber - 100].isBooked = true;
         cout << "강의실 예약이 완료되었습니다." << endl;
     }
@@ -104,7 +104,7 @@ void ClassroomRentRequest::setPracticalRoomBooked(Member _member, int _roomNumbe
         }
         else
         {
-            classroom[_roomNumber - 100].bookMember = _member;
+            classroom[_roomNumber - 100].bookMember = _member.getIdNumber();
             classroom[_roomNumber - 100].isBooked = true;
         }
     }
