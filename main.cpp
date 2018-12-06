@@ -147,7 +147,6 @@ int main()
 		while (1)
 		{
 			system("clear");
-			cout << "your ID is :" << user.getIdNumber() << endl;
 			cout << "학생 계정 입니다.\n[1.Grade Information] [2.Request] [3.Exit]" << endl;
 			cin >> select;
 			if (select == 1) //   Student Information
@@ -157,7 +156,6 @@ int main()
 				cout << "your ID is :" << user.getIdNumber() << endl;
 				cout << "your Grade is:" << endl;
 				user.getGrades();
-				//   Implement!!!!   cout << grades.showGrade();   //   iterates all grade struct members
 
 				/* pause */
 				cout << "Press enter to continue...";
@@ -169,10 +167,8 @@ int main()
 				while (1)
 				{
 					system("clear");
-					cout << "[Request Menu for]" << endl;
+					cout << "Request Menu for" << endl;
 					select = aRequest.ifRequest();
-					// cout << "[1.ClassroomRent] [2.Improvement] [3.Professor Consulting] [4.Certificate] [5.Go Back]" << endl;
-					// cin >> select;
 					if (select == 1)
 					{
 						cRent.ifRequest(user);
@@ -273,7 +269,8 @@ int main()
 				cin.ignore(); // ignores the newline
 				cin.get();	//waits for character
 			}
-			else if(select == 3){
+			else if (select == 3)
+			{
 				user.setSchedule(!user.getSchedule());
 			}
 			else

@@ -80,9 +80,11 @@ int ImprovementRequest::getOpinionNumber()
         {
             throw "기능개선요청 리스트가 비어있어 인덱스를 가져올 수 없습니다.";
         }
-        else{
+        else
+        {
             int index = 0;
-            while (!(opinions[index].empty())){
+            while (!(opinions[index].empty()))
+            {
                 index++;
             }
             return index;
@@ -105,9 +107,9 @@ void ImprovementRequest::printOpinions()
         }
         else
         {
+            cout << "----- Opinion list -----" << endl;
             for (int i = 0; i < getOpinionNumber(); i++)
             {
-                cout << "----- Opinion list -----" << endl;
                 cout << i << ". " << opinions[i] << endl;
             }
         }

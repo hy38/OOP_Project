@@ -133,7 +133,7 @@ void ClassroomRentRequest::printAllRooms(Rooms _classrooms[]){
             isBooked = "not booked";
         }
         if (i == 5)
-            cout << "---- practical Room ------";
+            cout << "---- practical Room ------" << endl;
         cout << "   "<<_classrooms[i].classroom << "         " << 
         isBooked << "       " << _classrooms[i].bookMember << endl;
     }
