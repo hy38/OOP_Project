@@ -4,23 +4,26 @@
 #include "GraduateStudent.h"
 #include "Student.h"
 #include "Login.h"
+#include "Request.h"
+#include "ClassroomRentRequest.h"
+#include "ImprovementRequest.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
 #include <string>
 #include <stdlib.h>
+#define ARRAY_SIZE 5
 using namespace std;
 
 struct Rooms
 {
 	int classroom;
+	string bookMember;
 	bool isBooked;
-};
+};	struct Rooms RoomArray[ARRAY_SIZE];
 
 int main()
 {
-	// Member admin = Member(); //  Member tjsdjsgkdu epdlxj dlqfur gn ahems ekdma wkrdjq tlfgod! tjsrufwhrjsdla
-	// vector<Member> dataVector = admin.saveFileData("datafile.csv");
 	int select = 0;
 
 	vector<Member> MemberLists;
@@ -31,7 +34,7 @@ int main()
 	Member a = Member();
 	getline(inFile, str); //  Not Taking the First Line
 	while (!inFile.eof())
-	{ //  WHILE EOF convert NEED!
+	{
 		try
 		{
 			getline(inFile, str, ','); //  idNumber : string
@@ -65,11 +68,9 @@ int main()
 				aGraduated.setStatus(a.getStatus());
 				MemberLists.push_back(aGraduated);
 			}
-
 			else
 			{
 				throw "Undefined Status simbol!";
-				// exit(0);
 			}
 
 		} //  try end
@@ -78,56 +79,68 @@ int main()
 			cerr << msg << endl;
 			exit(0);
 		}
-	} //  for end
+	} //  while end
 	inFile.close();
+
 
 	Login anObject = Login(/* MemberLists */);
 	Member user = anObject.getIdentify(MemberLists);
-	// user = dataVector[anObject.getIdentify(dataVector)]; if getIdentiry return int
-
-	cout << "Login Successful! you are a '" << user.getStatus() << "'!" << endl;
-	cout << "[1.student] [2.graduate] [3.Professor]" << endl;
+	ClassroomRentRequest cRent = ClassroomRentRequest(RoomArray);
+	ImprovementRequest improvement = ImprovementRequest();
+	Request aRequest = Request();
+	
 	if (user.getStatus() == 'u')
-	{
 		select = 1;
-	}
 	else if (user.getStatus() == 'g')
 		select = 2;
 	else
 		select = 3;
+
 	while (select != 4)
 	{
 		switch (select)
 		{
-		case 1:
+		case 1:	//	Undergrdaduate
 
 			system("clear");
 			while (1)
 			{
 				system("clear");
-				cout << "검색 메뉴 입니다.\n[1.] [2.이름 검색] [3.뒤로가기]\n"
+				cout << "학생 계정 입니다.\n[1.Grade Information] [2.Request] [3.뒤로가기]\n"
 					 << endl;
 				cin >> select;
-				if (select == 1)
+				if (select == 1)	//	Student Information
 				{
 					system("clear");
-					cout << "-------------- [내림차순 정렬] --------------\n"
-						 << endl;
+					cout << "[Grade Information Menu]\n" << endl;
+					cout << "your ID is :" << user.getIdNumber() << endl;
+					cout << "your grade is :" << endl;
+//	Implement!!!!	cout << showGrade();	//	iterates all grade struct members
 					system("pause");
 				}
-				else if (select == 2)
+				else if (select == 2)	//	Request
 				{
 					system("clear");
-					cout << "-------------- [이름 검색] -------------\n"
-						 << endl;
-					cout << "검색할 이름 입력 : " << endl;
+					cout <<  "[Request Menu for]\n" << endl;
+					select = aRequest.ifRequest();
+					// cout << "[1.ClassroomRent] [2.Improvement] [3.Professor Consulting] [4.Certificate] [5.Go Back]" << endl;
+					// cin >> select;
+					if(select == 1){
+						// cRent.
+					}
+					else if(select == 2){
+						// improvement.InputOpinion();
+						// improvement.
+					}
+
+
 					system("pause");
 				}
 				else
 					break;
 			}
 			break;
-		case 2:
+		case 2:	//	Graduate
 
 			system("clear");
 			while (1)
@@ -153,7 +166,7 @@ int main()
 					break;
 			}
 			break;
-		case 3:
+		case 3:	//	Professor
 			system("clear");
 			cout << "삭제 메뉴 입니다.\n"
 				 << endl;
