@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-Member::Member(){}
+Member::Member() {}
 //  constructor
 
 char Member::getStatus() { return status; }
@@ -15,13 +15,12 @@ string Member::getMajor() { return major; }
 bool Member::getSchedule() { return schedule; }
 //  getter
 
-void Member::setStatus(char _status){status = _status;}
+void Member::setStatus(char _status) { status = _status; }
 void Member::setIdNumber(string _idNumber) { idNumber = _idNumber; }
 void Member::setPassword(string _password) { password = _password; }
 void Member::setMajor(string _major) { major = _major; }
 void Member::setSchedule(bool _schedule) { schedule = _schedule; }
 //  setter
-
 
 /* vector<Member> Member::saveFileData(string fileName){
 
@@ -96,10 +95,8 @@ int Member::searchIndexOfVector(vector<Member> _Members, string _id)
         {                                                //  search
             if (!_Members[i].getIdNumber().compare(_id)) //  check the validity of_inputID. ==> if(same)
                 return i;
-
-            else //  there is no such ID!
-                throw "No SUCH ID! Please check your ID again.";
         }
+        throw "No SUCH ID! Please check your ID again.";
     }
     catch (char const *msg)
     {

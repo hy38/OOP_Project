@@ -6,15 +6,14 @@
 
 using namespace std;
 
-class GraduateStudent : public Student{
+class GraduateStudent : public Student
+{
 
-public:
-GraduateStudent();
-GraduateStudent(string _inputStringLine);
-
-private:
-
-
+  private:
+  public:
+    GraduateStudent();
+    GraduateStudent(string _inputStringLine);
+    void getAll();
 };
 
 #endif

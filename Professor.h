@@ -17,6 +17,7 @@ public:
   Professor(string);
   void setStudentGrade(vector<Member>, string);
   void getSemester();
+  void getAll();
 };
 
 #endif

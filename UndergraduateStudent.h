@@ -11,7 +11,8 @@ public:
   UndergraduateStudent(string _inputStringLine);
   void setStudentGrade();
   void getSemester();
-
+  void getAll();
+  
 private:
 
 

@@ -25,6 +25,7 @@ public:
   Student();
   void setSemester(int _semester);
   void setGrades(string _subject, char _grade, int _index);
+  void getAll() {};
   // void setGrades(string _subject, char _grade);
 
 

@@ -5,7 +5,7 @@ CFLAGS = -c
 TARGET = Main
 
 $(TARGET): $(OBJECTS)
-	$(CC) -g -o $(TARGET) $(OBJECTS)
+	$(CC) -o3 -o $(TARGET) $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS) $(TARGET)

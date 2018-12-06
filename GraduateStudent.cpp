@@ -1,8 +1,11 @@
 #include "GraduateStudent.h"
 #include <sstream>
+#include <string>
 #include <iostream>
 
 using namespace std;
+
+GraduateStudent::GraduateStudent(){}
 
 GraduateStudent::GraduateStudent(string _inputStringLine){
     string input = _inputStringLine;
@@ -18,20 +21,20 @@ GraduateStudent::GraduateStudent(string _inputStringLine){
         else throw "password parsing error!";
 
         if (getline(input_stringstream, parsed, ',')){
-            Student::setSemester(stoi(parsed));   //  semester parse
+            setSemester(stoi(parsed));   //  semester parse
         }
         else throw "semester parsing error!";
 
         if (getline(input_stringstream, parsed, ',')){
-                Member::setMajor(parsed);    //  major parse
+            setMajor(parsed);    //  major parse
         }
         else throw "major parsing error!";
 
         if (getline(input_stringstream, parsed, ',')){    
             if (parsed.compare("TRUE") == 0)
-            Member::setSchedule(true);  //  schedule parse
+            setSchedule(true);  //  schedule parse
         else if (parsed.compare("FALSE") == 0)
-            Member::setSchedule(false); //  schedule parse
+            setSchedule(false); //  schedule parse
         else
             throw "schedule parsing error";
         
@@ -45,7 +48,7 @@ GraduateStudent::GraduateStudent(string _inputStringLine){
         }
         else throw "grade0 parsing error!";
 
-        Student::setGrades(tempSubject, tempGrade, 0);  //  Grades[0]
+        setGrades(tempSubject, tempGrade, 0);  //  Grades[0]
 
         if (getline(input_stringstream, parsed, ',')){
             tempSubject = parsed;    //  subject1 parse
@@ -57,7 +60,7 @@ GraduateStudent::GraduateStudent(string _inputStringLine){
         }
         else throw "grade1 parsing error!";
 
-        Student::setGrades(tempSubject, tempGrade, 0);  //  Grades[1]
+        setGrades(tempSubject, tempGrade, 0);  //  Grades[1]
 
         if (getline(input_stringstream, parsed, ',')){
             tempSubject = parsed;    //  subject2 parse
@@ -69,7 +72,7 @@ GraduateStudent::GraduateStudent(string _inputStringLine){
         }
         else throw "grade2 parsing error!";
         
-        Student::setGrades(tempSubject, tempGrade, 0);  //  Grades[2]
+        setGrades(tempSubject, tempGrade, 0);  //  Grades[2]
         
         }
 
@@ -82,3 +85,6 @@ GraduateStudent::GraduateStudent(string _inputStringLine){
 
 }
 
+void GraduateStudent::getAll(){
+    cout << getIdNumber()<< endl;
+}

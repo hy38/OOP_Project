@@ -31,14 +31,27 @@ int ClassroomRentRequest::ifRequest(Member _bookingMember)
 
 void ClassroomRentRequest::setClassroomBooked(Member _member, int _roomNumber)
 {
-    if (classroom[_roomNumber-100].isBooked){
+    if (classroom[_roomNumber-100].isBooked){   // 102 classroom is loaded at classroom[1]
         cout << "강의실이 이미 예약되어있습니다." << endl;
     }
     else{
-        
+        classroom[_roomNumber-100].bookMember = _member;
+        classroom[_roomNumber-100].isBooked = true;
+        cout << "강의실 예약이 완료되었습니다." << endl;
     }
 }
 
 void ClassroomRentRequest::SetPracticalRoomBooked(Member _member, int _roomNumber){
-
+    if (_member.getStatus() != 'p'){
+        cout << "교수님 이외에는 실습실 예약이 불가능합니다." << endl;
+    }
+    else{
+        if (classroom[_roomNumber-100].isBooked){
+            cout << "강의실이 이미 예약되어있습니다." << endl;
+        }
+        else{
+            classroom[_roomNumber-100].bookMember = _member;
+            classroom[_roomNumber-100].isBooked = true;
+        }
+    }
 }

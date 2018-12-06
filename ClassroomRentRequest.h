@@ -6,6 +6,7 @@ using namespace std;
 
 struct Rooms{
     int classroom;
+    Member bookMember;
     bool isBooked;
 };
 

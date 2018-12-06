@@ -15,8 +15,7 @@ string Login::getInputPassword() { return inputPassword; }
 
 //  getIdentify() calls search() for compare and calls setStatus() for SETTING the Member::status
 Member Login::getIdentify(vector<Member> _Member){   //  gets userInput ID/PW's to compare with the ones in Member's database
-    int index = Member::searchIndexOfVector(_Member, inputID);   //  search exception handled in search() function
-
+    int index = Member::searchIndexOfVector(_Member, getInputID());   //  search exception handled in search() function
     try{
         if(! _Member[index].getPassword().compare(inputPassword)){
             successIdentifying = true;

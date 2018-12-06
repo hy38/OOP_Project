@@ -1,10 +1,12 @@
 #include <sstream>
 #include <iostream>
+#include "Professor.h"
 // #include "Student.h"
 // #include "Member.h"
-#include "Professor.h"
 
 using namespace std;
+
+Professor::Professor(){}
 
 Professor::Professor(string _inputStringLine){
 
@@ -14,21 +16,21 @@ Professor::Professor(string _inputStringLine){
 
     try{
         if (getline(input_stringstream, parsed, ',')){
-            Member::setPassword(parsed);    //  password parse
+            setPassword(parsed);    //  password parse
         }
         else throw "password parsing error!";
 
         if (getline(input_stringstream, parsed, ',')){  //  skip semester
             if (getline(input_stringstream, parsed, ',')){
-                Member::setPassword(parsed);    //  major parse
+            setMajor(parsed);    //  major parse    !
             }
         }
 
-        if (getline(input_stringstream, parsed, ',')){    
+        if (getline(input_stringstream, parsed, ',')){    // schedule parse
             if (parsed.compare("TRUE") == 0)
-            Member::setSchedule(true);  //  schedule parse
+            setSchedule(true);  //  schedule parse
         else if (parsed.compare("FALSE") == 0)
-            Member::setSchedule(false); //  schedule parse
+            setSchedule(false); //  schedule parse
         else
             throw "schedule parsing error";
         }
@@ -62,4 +64,11 @@ void Professor::setStudentGrade(vector<Member> _Members, string _id){   //  stud
     else{
         throw "input ID is Not a Student ID!";
     }
+}
+
+void Professor::getAll(){
+    cout << getIdNumber()<< endl;
+    // cout << getPassword()<< endl;
+    // cout << getSchedule()<< endl;
+
 }
