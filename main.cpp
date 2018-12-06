@@ -274,7 +274,7 @@ int main()
 				cin.get();	//waits for character
 			}
 			else if(select == 3){
-				user.setSchedule(!user.getSchedule);
+				user.setSchedule(!user.getSchedule();
 			}
 			else
 				break;
