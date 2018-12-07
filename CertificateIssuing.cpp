@@ -8,8 +8,23 @@ CertificateIssuing::CertificateIssuing(){}
 
 void CertificateIssuing::printAll(UndergraduateStudent _Member){
     cout.fill(' ');
-    cout << cout.width(10) << "재 학 증 명 서" << endl;
-    cout << cout.width(4) << "학     번: " << _Member.getIdNumber() << endl;
-    cout << cout.width(4) << "대 학  교:  충 남 대 학 교" << endl;
-    cout << cout.width(4) << "전	 공: " << _Member.getMajor() << endl;
+    cout << "             " << "재  학  증  명  서" << endl;
+    cout << "   " << "학  번 : " << _Member.getIdNumber() << endl;
+    cout << "   " << "대 학 교 :  충 남 대 학 교" << endl;
+    cout << "   "  << "전 공 : " << _Member.getMajor() << endl;
+    cout << "   "  << "학 기 : " << _Member.getSemester() << endl;
+    cout << endl << endl << "           " <<"위 사실을 증명함" << endl;
+    cout << endl << "           " << "2018년  12월  7일" << endl;
 }
+
+void CertificateIssuing::printAll(GraduateStudent _Member){
+    cout.fill(' ');
+    cout << "             " << "재  학  증  명  서" << endl;
+    cout << "   " << "학  번 : " << _Member.getIdNumber() << endl;
+    cout << "   " << "대 학 교 :  충 남 대 학 교" << endl;
+    cout << "   "  << "전 공 : " << _Member.getMajor() << endl;
+    cout << "   "  << "학 기 : " << _Member.getSemester() << endl;
+    cout << endl << endl << "           " <<"위 사실을 증명함" << endl;
+    cout << endl << "           " << "2018년  12월  7일" << endl;
+}
+

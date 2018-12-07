@@ -151,7 +151,11 @@ void AppController::runProject()
             else if(select == 3){
                 // certificateIssuing
                 system("clear");
-                
+                certificate.printAll(user);
+
+                cout << "Press enter to continue...";
+                cin.ignore(); // ignores the newline
+                cin.get();    //waits for character
             }
             else //	exit
                 break;
