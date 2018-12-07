@@ -66,9 +66,11 @@ void Professor::setStudentGrade(vector<UndergraduateStudent> _Members, string _i
             cout << "input the grade :";
             cin >> inputGrade;
             UndergraduateStudent a = _Members[index];
+            cout << "--이전--" << endl;
             a.getGrades();
             a.setGrades(inputSubject, inputGrade, 3);
             _Members[index] = a;
+            cout << "--이후--" << endl;
             a.getGrades();
         }
         else

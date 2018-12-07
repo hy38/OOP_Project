@@ -14,7 +14,7 @@ int ConsultingRequest::ifRequest(){
     cin>>_IdNumber;
     int index = professorList[0].searchIndexOfVector(professorList,_IdNumber);
     // search professor
-    if (professorList[index].getSchedule()){
+    if (!professorList[index].getSchedule()){
         professorList[index].setSchedule(!professorList[index].getSchedule());
         cout << "상담 신청이 완료되었습니다." << endl;
         printProfessorInfo(professorList[index]);
@@ -28,7 +28,7 @@ vector<Professor> ConsultingRequest::getProfessorList() { return professorList;}
 
 void ConsultingRequest::printProfessorInfo(Professor _consultedProfessor){
     cout << "교수님 ID: " << _consultedProfessor.getIdNumber() << endl ;
-    if (!_consultedProfessor.getSchedule())
+    if (_consultedProfessor.getSchedule())
         cout << "상담신청이 예약됨." << endl;
 }
 

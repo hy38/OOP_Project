@@ -2,4 +2,4 @@ idNumber,password,semester,major,schedule,subject0,grade0,subject1,grade1,subjec
 p123456789,123456,null,Physics,TRUE,null,null,null,null,null,null
 u201702012,oopLove04,4,CSE,TRUE,OOP,C,SYSProg,D,ComArch,A
 g201702041,5ghd5ghd,10,Mechatronics,FALSE,OOP,F,SYSProg,F,ComArch,F
-p201801004,jsk1122,null,Physics,TRUE,null,null,null,null,null,null
+p201801004,jsk1122,null,Physics,FALSE,null,null,null,null,null,null

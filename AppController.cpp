@@ -196,7 +196,7 @@ void AppController::runProject()
         {
             system("clear");
 
-            cout << "교수 계정 입니다.\n[1.Classroom Rent] [2.Input Grade] [3.change isBusy] [4.Exit]" << endl;
+            cout << "교수 계정 입니다.\n[1.Classroom Rent] [2.Input Grade] [3.Change isBusy] [4.Exit]" << endl;
             cin >> select;
             if (select == 1)
             {
@@ -211,11 +211,11 @@ void AppController::runProject()
                 string tempString;
                 cout << "성적을 입력할 studentID를 입력하시오 :" << endl;
                 cin >> tempString;
-                if (tempString.at(0) == 'u')
+                if (tempString.at(0) == 'u')    //  input undergraduate's grade
                 {
                     user.setStudentGrade(UndergraduateStudentLists, tempString);
                 }
-                else
+                else    //  input graduate's grade
                 {
                     user.setStudentGrade(GraduateStudentLists, tempString);
                 }
@@ -228,13 +228,18 @@ void AppController::runProject()
             else if (select == 3)
             {
                 user.setSchedule(!user.getSchedule());
-                string ifBusy;
+                string isBusy;
                 if (user.getSchedule()){
-                    ifBusy = "바쁨";
+                    isBusy = "바쁨";
                 }
                 else
-                    ifBusy = "안바쁨";
-                cout << "스케줄이 변경되었습니다(" << ifBusy << ")" << endl;
+                    isBusy = "안바쁨";
+                cout << "스케줄이 변경되었습니다('" << isBusy << "'으로 변경됨)" << endl;
+
+                /* pause */
+                cout << "Press enter to continue...";
+                cin.ignore(); // ignores the newline
+                cin.get();    //waits for character
             }
             else
                 break;
