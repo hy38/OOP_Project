@@ -62,14 +62,15 @@ void ImprovementRequest::inputOpinion()
                 cout << "요청 등록이 완료되었습니다." << endl;
             }
         }
-        else if (ifQuestorPrint == 2){
+        else if (ifQuestorPrint == 2)
+        {
             printOpinions();
         }
     }
     catch (char const *msg)
     {
         cerr << msg << endl;
-        return;   
+        return;
     }
 }
 

@@ -11,9 +11,6 @@ using namespace std;
 
 class Professor : public Member
 {
-private:
-  // char studentGrade;
-
 public:
   Professor();
   Professor(string);

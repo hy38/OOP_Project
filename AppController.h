@@ -13,10 +13,19 @@
 #include "ConsultingRequest.h"
 #include "CertificateIssuing.h"
 
-class AppController {
-    public:
-        AppController();
-        void runProject();
+using namespace std;
+
+class AppController
+{
+  public:
+    AppController();
+    void runProject();
+    void pause()
+    {
+        cout << "Press enter to continue...";
+        cin.ignore(); // ignores the newline
+        cin.get();    //waits for character
+    }
 };
 
 #endif

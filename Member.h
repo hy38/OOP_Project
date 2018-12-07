@@ -1,17 +1,13 @@
 #ifndef MEMBER_H
 #define MEMBER_H
 
-// #include "Professor.h"
-// #include "Student.h"
-// #include "UndergraduateStudent.h"
-// #include "GraduateStudent.h"
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-class Member{
-  
+class Member
+{
 private:
   char status;
   string idNumber;
@@ -34,7 +30,6 @@ public:
   void setSchedule(bool _schedule);
 
   vector<Member> saveFileData(string fileName);
-  // int searchIndexOfVector(vector<Msember>, string _id);
 };
 
 #endif

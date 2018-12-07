@@ -3,88 +3,77 @@
 
 using namespace std;
 
-Login::Login(/* vector<Member> _Member */){
+Login::Login()
+{
     cout << "ID :";
-	cin >> inputID;
-	cout << "Password :";
-	cin >> inputPassword;
+    cin >> inputID;
+    cout << "Password :";
+    cin >> inputPassword;
     setStatus(inputID.at(0));
-}   //  constructor
+} //  constructor
 
 string Login::getInputID() { return inputID; }
 string Login::getInputPassword() { return inputPassword; }
 
-//  getIdentify() calls search() for compare and calls setStatus() for SETTING the Member::status
-UndergraduateStudent Login::getIdentify(vector<UndergraduateStudent> _Member){   //  gets userInput ID/PW's to compare with the ones in Member's database
+UndergraduateStudent Login::getIdentify(vector<UndergraduateStudent> _Member)
+{ //  gets userInput ID/PW's to compare with the ones in Member's database
     UndergraduateStudent temp;
-    int index = temp.searchIndexOfVector(_Member, getInputID());   //  search exception handled in search() function
-    try{
-        if(! _Member[index].getPassword().compare(inputPassword)){
-            successIdentifying = true;
-            // setMemberStatus(inputID);    // set Member::status
+    int index = temp.searchIndexOfVector(_Member, getInputID());
+    try
+    {
+        if (!_Member[index].getPassword().compare(inputPassword))
+        {
             return _Member[index];
         }
         else
             throw "Password disMatch!";
     }
     catch (char const *msg)
-		{
-			cerr << msg << endl;
-			exit(0);
-		}
-}   //  if successful, successIdentifying = true.
-GraduateStudent Login::getIdentify(vector<GraduateStudent> _Member){   //  gets userInput ID/PW's to compare with the ones in Member's database
+    {
+        cerr << msg << endl;
+        exit(0);
+    }
+}
+GraduateStudent Login::getIdentify(vector<GraduateStudent> _Member)
+{ //  gets userInput ID/PW's to compare with the ones in Member's database
     GraduateStudent temp;
-    int index = temp.searchIndexOfVector(_Member, getInputID());   //  search exception handled in search() function
-    try{
-        if(! _Member[index].getPassword().compare(inputPassword)){
-            successIdentifying = true;
-            // setMemberStatus(inputID);    // set Member::status
+    int index = temp.searchIndexOfVector(_Member, getInputID());
+    try
+    {
+        if (!_Member[index].getPassword().compare(inputPassword))
+        {
             return _Member[index];
         }
         else
             throw "Password disMatch!";
     }
     catch (char const *msg)
-		{
-			cerr << msg << endl;
-			exit(0);
-		}
-}   //  if successful, successIdentifying = true.
-Professor Login::getIdentify(vector<Professor> _Member){   //  gets userInput ID/PW's to compare with the ones in Member's database
+    {
+        cerr << msg << endl;
+        exit(0);
+    }
+}
+Professor Login::getIdentify(vector<Professor> _Member)
+{ //  gets userInput ID/PW's to compare with the ones in Member's database
     Professor temp;
-    int index = temp.searchIndexOfVector(_Member, getInputID());   //  search exception handled in search() function
-    try{
-        if(! _Member[index].getPassword().compare(inputPassword)){
-            successIdentifying = true;
-            // setMemberStatus(inputID);    // set Member::status
+    int index = temp.searchIndexOfVector(_Member, getInputID());
+    try
+    {
+        if (!_Member[index].getPassword().compare(inputPassword))
+        {
             return _Member[index];
         }
         else
             throw "Password disMatch!";
     }
     catch (char const *msg)
-		{
-			cerr << msg << endl;
-			exit(0);
-		}
-}   //  if successful, successIdentifying = true.
+    {
+        cerr << msg << endl;
+        exit(0);
+    }
+}
 //  getter
 
 void Login::setInputID(string _idNumber) { inputID = _idNumber; }
 void Login::setInputPassword(string _password) { inputPassword = _password; }
-void Login::setsuccessIdentifying(bool _successIdentifying) { successIdentifying = _successIdentifying; }
-
-void Login::setMemberStatus(string _inputID){    //  gets the first character of ID
-    char temp;
-    if (successIdentifying){
-        if (!isdigit(temp = _inputID.at(0)))
-            Member::setStatus(temp); //  the first character of ID; must not be int but char
-        else
-            throw "First letter must be a 'char'!"; //  first letter is int not char.
-        }
-    else
-        throw "Identification ERROR";
-        
-    }
 //  setter

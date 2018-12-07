@@ -5,10 +5,11 @@
 
 using namespace std;
 
-class Request : public Member {
-    public:
-        Request();
-        int ifRequest();
+class Request : public Member
+{
+  public:
+    Request();
+    int ifRequest();
 };
 
 #endif

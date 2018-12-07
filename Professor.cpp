@@ -47,7 +47,7 @@ Professor::Professor(string _inputStringLine)
     catch (char const *msg)
     {
         cerr << msg << endl;
-        // exit(0);
+        exit(0);
     }
 }
 

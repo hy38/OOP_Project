@@ -8,14 +8,14 @@ using namespace std;
 
 class ConsultingRequest : public Request
 {
-  private:
-    vector<Professor> professorList;
+private:
+  vector<Professor> professorList;
 
-  public:
-    ConsultingRequest(vector<Professor> _Members);
-    int ifRequest();
-    void printProfessorInfo(Professor _consultedProfessor);
-    vector<Professor> getProfessorList();
+public:
+  ConsultingRequest(vector<Professor> _Members);
+  int ifRequest();
+  void printProfessorInfo(Professor _consultedProfessor);
+  vector<Professor> getProfessorList();
 };
 
 #endif

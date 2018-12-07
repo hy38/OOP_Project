@@ -21,21 +21,3 @@ void Member::setPassword(string _password) { password = _password; }
 void Member::setMajor(string _major) { major = _major; }
 void Member::setSchedule(bool _schedule) { schedule = _schedule; }
 //  setter
-
-
-// int Member::searchIndexOfVector(vector<Member> _Members, string _id){
-//     try
-//     {
-//         for (int i = 0; i < _Members.size(); i++)
-//         {                                                //  search
-//             if (!_Members[i].getIdNumber().compare(_id)) //  check the validity of_inputID. ==> if(same)
-//                 return i;
-//         }
-//         throw "No SUCH ID! Please check your ID again.";
-//     }
-//     catch (char const *msg)
-//     {
-//         cerr << msg << endl;
-//         exit(0);
-//     }
-// }

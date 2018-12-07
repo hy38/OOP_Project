@@ -10,12 +10,14 @@
 
 using namespace std;
 
-struct grade{
+struct grade
+{
   string subject;
   char grade = ' ';
 };
 
-class Student : public Member{
+class Student : public Member
+{
 private:
   int semester;
   grade Grades[MAX_GRADE_SIZE];
@@ -24,7 +26,6 @@ public:
   Student();
   void setSemester(int _semester);
   void setGrades(string _subject, char _grade, int _index);
-  void setGrades(string _subject, char _grade);
   void getGrades();
 
   int getSemester();

@@ -72,13 +72,14 @@ void AppController::runProject()
     } //  while end
     inFile.close();
 
-    Login anObject = Login();   // start Login
+    Login anObject = Login(); // start Login
 
     ClassroomRentRequest cRent = ClassroomRentRequest(RoomArray);
     ImprovementRequest improvement = ImprovementRequest(RequestList);
     Request aRequest = Request();
     ConsultingRequest consult = ConsultingRequest(ProfessorLists);
     CertificateIssuing certificate = CertificateIssuing();
+
     if (anObject.getStatus() == 'u')
     {
         select = 1;
@@ -107,19 +108,17 @@ void AppController::runProject()
         while (1)
         {
             system("clear");
-            cout << "학생 계정 입니다.\n[1.Grade Information] [2.Request] [3.certificateIssuing] [4.Exit]" << endl;
+            cout << "대학생 계정 입니다.\n[1.Grade Information] [2.Request] [3.Certificate Issuing] [4.Exit]" << endl;
             cin >> select;
             if (select == 1) //   Student Information
             {
                 system("clear");
-                cout << "[Grade Information Menu]" << endl;
+                cout << "[Grade Information]" << endl;
                 cout << "your ID is :" << user.getIdNumber() << endl;
                 cout << "your Grade is:" << endl;
                 user.getGrades();
 
-                cout << "Press enter to continue...";
-                cin.ignore(); // ignores the newline
-                cin.get();    //waits for character
+                pause();
             }
             else if (select == 2) //   Request
             {
@@ -127,6 +126,7 @@ void AppController::runProject()
                 {
                     system("clear");
                     cout << "Request Menu for" << endl;
+                    cout << "[1.Classroom Rent] [2.Improvement] [3.Professor Consulting] [4.Go Back]" << endl;
                     select = aRequest.ifRequest();
                     if (select == 1)
                     {
@@ -143,19 +143,16 @@ void AppController::runProject()
                     }
                     else //	select == 4
                         break;
-                    cout << "Press enter to continue...";
-                    cin.ignore(); // ignores the newline
-                    cin.get();    //waits for character
+
+                    pause();
                 }
             }
-            else if(select == 3){
-                // certificateIssuing
+            else if (select == 3)
+            { // certificateIssuing
                 system("clear");
                 certificate.printAll(user);
 
-                cout << "Press enter to continue...";
-                cin.ignore(); // ignores the newline
-                cin.get();    //waits for character
+                pause();
             }
             else //	exit
                 break;
@@ -170,21 +167,24 @@ void AppController::runProject()
         while (1)
         {
             system("clear");
-            cout << "추가 및 변경 메뉴 입니다.\n[1.학생 추가] [2.학점 변경] [3.뒤로가기]\n"
-                 << endl;
+            cout << "대학원생 계정 입니다.\n[1.Grade Information] [2.Certificate Issuing] [3.Exit]" << endl;
             cin >> select;
             if (select == 1)
             {
                 system("clear");
-                cout << "-------------- [학생 추가] --------------\n"
-                     << endl;
+                cout << "[Grade Information]" << endl;
+                cout << "your ID is :" << user.getIdNumber() << endl;
+                cout << "your Grade is:" << endl;
+                user.getGrades();
+
+                pause();
             }
-            else if (select == 2)
+            else if (select == 2) // certificateIssuing
             {
                 system("clear");
-                cout << "-------------- [학점 변경] -------------\n"
-                     << endl;
-                cout << "변경할 학생 학번 입력 : " << endl;
+                certificate.printAll(user);
+
+                pause();
             }
             else
                 break;
@@ -204,51 +204,43 @@ void AppController::runProject()
             cin >> select;
             if (select == 1)
             {
-                cout << "select : 1" << endl;
-                cout << "Press enter to continue...";
-                cin.ignore(); // ignores the newline
-                cin.get();    //waits for character
+                cRent.ifRequest(user);
 
+                pause();
             }
             else if (select == 2)
             {
                 string tempString;
                 cout << "성적을 입력할 studentID를 입력하시오 :" << endl;
                 cin >> tempString;
-                if (tempString.at(0) == 'u')    //  input undergraduate's grade
+                if (tempString.at(0) == 'u') //  input undergraduate's grade
                 {
                     user.setStudentGrade(UndergraduateStudentLists, tempString);
                 }
-                else    //  input graduate's grade
+                else //  input graduate's grade
                 {
                     user.setStudentGrade(GraduateStudentLists, tempString);
                 }
 
-                /* pause */
-                cout << "Press enter to continue...";
-                cin.ignore(); // ignores the newline
-                cin.get();    //waits for character
+                pause();
             }
             else if (select == 3)
             {
                 user.setSchedule(!user.getSchedule());
                 string isBusy;
-                if (user.getSchedule()){
+                if (user.getSchedule())
+                {
                     isBusy = "바쁨";
                 }
                 else
                     isBusy = "안바쁨";
                 cout << "스케줄이 변경되었습니다('" << isBusy << "'으로 변경됨)" << endl;
 
-                /* pause */
-                cout << "Press enter to continue...";
-                cin.ignore(); // ignores the newline
-                cin.get();    //waits for character
+                pause();
             }
             else
                 break;
         }
-        // break;
     }
     default:
         break;

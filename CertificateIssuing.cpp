@@ -14,7 +14,7 @@ void CertificateIssuing::printAll(UndergraduateStudent _Member){
     cout << "   "  << "전 공 : " << _Member.getMajor() << endl;
     cout << "   "  << "학 기 : " << _Member.getSemester() << endl;
     cout << endl << endl << "           " <<"위 사실을 증명함" << endl;
-    cout << endl << "           " << "2018년  12월  7일" << endl;
+    cout << endl << "           " << "2018년  12월  7일" << endl << endl;
 }
 
 void CertificateIssuing::printAll(GraduateStudent _Member){
@@ -25,6 +25,6 @@ void CertificateIssuing::printAll(GraduateStudent _Member){
     cout << "   "  << "전 공 : " << _Member.getMajor() << endl;
     cout << "   "  << "학 기 : " << _Member.getSemester() << endl;
     cout << endl << endl << "           " <<"위 사실을 증명함" << endl;
-    cout << endl << "           " << "2018년  12월  7일" << endl;
+    cout << endl << "           " << "2018년  12월  7일" << endl << endl;
 }
 
