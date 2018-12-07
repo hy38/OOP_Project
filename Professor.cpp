@@ -51,9 +51,6 @@ Professor::Professor(string _inputStringLine)
     }
 }
 
-void Professor::setSchedule(bool _schedule){ Schedule = _schedule; }
-bool Professor::getSchedule() { return Schedule; }
-
 void Professor::setStudentGrade(vector<UndergraduateStudent> _Members, string _id)
 {
     try

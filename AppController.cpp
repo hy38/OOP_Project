@@ -77,7 +77,7 @@ void AppController::runProject()
     ClassroomRentRequest cRent = ClassroomRentRequest(RoomArray);
     ImprovementRequest improvement = ImprovementRequest(RequestList);
     Request aRequest = Request();
-    ConsultingRequest consult = ConsultingRequest();
+    ConsultingRequest consult = ConsultingRequest(ProfessorLists);
     CertificateIssuing certificate = CertificateIssuing();
     if (anObject.getStatus() == 'u')
     {
@@ -107,7 +107,7 @@ void AppController::runProject()
         while (1)
         {
             system("clear");
-            cout << "학생 계정 입니다.\n[1.Grade Information] [2.Request] [3.ConsultRequest] [4.Exit]" << endl;
+            cout << "학생 계정 입니다.\n[1.Grade Information] [2.Request] [3.certificateIssuing] [4.Exit]" << endl;
             cin >> select;
             if (select == 1) //   Student Information
             {
@@ -138,18 +138,20 @@ void AppController::runProject()
                     }
                     else if (select == 3)
                     {
-                        // consult.
+                        consult.ifRequest();
+                        ProfessorLists = consult.getProfessorList();
                     }
-                    else if (select == 4)
-                    {
-                        // certificate.
-                    }
-                    else //	select == 5
+                    else //	select == 4
                         break;
                     cout << "Press enter to continue...";
                     cin.ignore(); // ignores the newline
                     cin.get();    //waits for character
                 }
+            }
+            else if(select == 3){
+                // certificateIssuing
+                system("clear");
+                
             }
             else //	exit
                 break;

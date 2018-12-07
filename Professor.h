@@ -12,16 +12,13 @@ using namespace std;
 class Professor : public Member
 {
 private:
-  bool Schedule;
   // char studentGrade;
 
 public:
   Professor();
   Professor(string);
-  void setSchedule(bool _schedule);
   void setStudentGrade(vector<UndergraduateStudent>, string);
   void setStudentGrade(vector<GraduateStudent>, string);
-  bool getSchedule();
   int searchIndexOfVector(vector<Professor> _Members, string _id);
 };
 
