@@ -3,8 +3,6 @@
 
 #include "Member.h"
 #include "SizeInfo.h"
-// #include "UndergraduateStudent.h"
-// #include "GraduateStudent.h"
 #include <iostream>
 #include <fstream>
 
@@ -27,7 +25,6 @@ public:
   void setSemester(int _semester);
   void setGrades(string _subject, char _grade, int _index);
   void getGrades();
-
   int getSemester();
 };
 

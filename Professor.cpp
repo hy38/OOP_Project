@@ -1,8 +1,6 @@
 #include <sstream>
 #include <iostream>
 #include "Professor.h"
-// #include "Student.h"
-// #include "Member.h"
 
 using namespace std;
 

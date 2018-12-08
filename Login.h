@@ -15,7 +15,7 @@ private:
   string inputPassword;
 
 public:
-  Login(/* vector<Member> _Member */);
+  Login();
   //  constructor
 
   string getInputID();

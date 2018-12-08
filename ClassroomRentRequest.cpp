@@ -32,13 +32,13 @@ int ClassroomRentRequest::ifRequest()
 {
     try
     {
-        char ifRe;
+        string ifRe;
         cout << "강의실을 예약하시려면 y, 취소하려면 n을 입력해주세요: ";
         cin >> ifRe;
         
-        if (ifRe == 'y')
+        if (ifRe == "y")
             return 1;
-        else if (ifRe == 'n')
+        else if (ifRe == "n")
             return 0;
         else
             throw "강의실 예약요청 여부입력이 잘못되었습니다.";
@@ -56,12 +56,13 @@ void ClassroomRentRequest::ifRequest(Member _bookingMember)
     {
         if (ifRequest())
         {
+            string temp;
             system("clear");
             printAllRooms(classroom);
             int roomNumber;
             cout << "예약할 강의실 호 수를 입력해주세요: "; // 100~104 is classroom, 105~108 is practicalroom
-            cin >> roomNumber;
-
+            cin >> temp;
+            roomNumber = atoi(temp.c_str());
             if ((roomNumber >= 100) && (roomNumber <= 108))
             {
                 if (roomNumber < 105)
@@ -100,9 +101,10 @@ void ClassroomRentRequest::setClassroomBooked(Member _member, int _roomNumber)
 
 void ClassroomRentRequest::setPracticalRoomBooked(Member _member, int _roomNumber)
 {
-    if (_member.getStatus() != 'p')
+    char a =  _member.getStatus();
+    if (a =='u' || a == 'g')
     {
-        cout << "교수님 이외에는 실습실 예약이 불가능합니다." << endl;
+        cout << "학생은 실습실 예약이 불가능합니다." << endl;
     }
     else
     {

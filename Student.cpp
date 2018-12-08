@@ -1,5 +1,4 @@
 #include "Student.h"
-// #include "SizeInfo.h"
 #include <iostream>
 #include <fstream>
 

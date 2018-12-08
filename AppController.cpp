@@ -73,7 +73,7 @@ void AppController::runProject()
     inFile.close();
 
     Login anObject = Login(); // start Login
-
+ 
     ClassroomRentRequest cRent = ClassroomRentRequest(RoomArray);
     ImprovementRequest improvement = ImprovementRequest(RequestList);
     Request aRequest = Request();
@@ -117,6 +117,7 @@ void AppController::runProject()
                 cout << "your ID is :" << user.getIdNumber() << endl;
                 cout << "your Grade is:" << endl;
                 user.getGrades();
+
 
                 pause();
             }
@@ -167,7 +168,7 @@ void AppController::runProject()
         while (1)
         {
             system("clear");
-            cout << "대학원생 계정 입니다.\n[1.Grade Information] [2.Certificate Issuing] [3.Exit]" << endl;
+            cout << "대학원생 계정 입니다.\n[1.Grade Information] [2.Certificate Issuing] [3.Classroom Rent] [4.Exit]" << endl;
             cin >> select;
             if (select == 1)
             {
@@ -183,6 +184,11 @@ void AppController::runProject()
             {
                 system("clear");
                 certificate.printAll(user);
+
+                pause();
+            }
+            else if (select == 3){
+                cRent.ifRequest(user);
 
                 pause();
             }

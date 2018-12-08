@@ -2,10 +2,6 @@
 #define APPCONTROLLER_H
 #include "SizeInfo.h"
 #include "Member.h"
-#include "Professor.h"
-#include "UndergraduateStudent.h"
-#include "GraduateStudent.h"
-#include "Student.h"
 #include "Login.h"
 #include "Request.h"
 #include "ClassroomRentRequest.h"
